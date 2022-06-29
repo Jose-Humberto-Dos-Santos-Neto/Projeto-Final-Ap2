@@ -80,6 +80,8 @@ inicio:
             {
                 break;
             }else{
+                system("cls");
+                printf("Digite novamente, informacao invalida.")
                 goto genero;
             }
             printf("email: ");
