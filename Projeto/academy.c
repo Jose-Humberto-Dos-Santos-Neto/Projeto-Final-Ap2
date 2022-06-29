@@ -19,8 +19,8 @@ inicio:
     int n = 0;
     struct usuario
     {
-        char nome[100], sexo[50], senha[20],email[150];
-        int idade,numero;
+        char nome[100], senha[20],email[150];
+        int idade,numero, sexo;
         float altura, peso, imc;
     } user[n];
     switch (login)
@@ -64,18 +64,37 @@ inicio:
         {
         case 1:
             system("cls");
-            printf("ID: ");
+            printf("Nome De Usuario: ");
             fflush(stdin);
             gets(user[n].nome);
             printf("Senha: ");
             fflush(stdin);
             gets(user[n].senha);
-            printf("ID: ");
+            genero:
+            printf("genero: ");
+            printf("Digite [1] para masculino, digite [2] para feminino ou [3] para outro.");
             fflush(stdin);
-            gets(user[n].sexo);
-            printf("Senha: ");
+            scanf("%d",user[n].sexo);
+            if (user[n].sexo == "1" || user[n].sexo == "2" ||user[n].sexo == "3")
+            {
+                break;
+            }else{
+                goto genero;
+            }
+            printf("email: ");
             fflush(stdin);
             gets(user[n].email);
+            printf("Numero de Telefone: ");
+            scanf("%d",user[n].numero);
+            printf("Idade: ");
+            fflush(stdin);
+            scanf("%d",user[n].idade);
+            printf("Altura: ");
+            fflush(stdin);
+            scanf("%f",user[n].altura);
+            printf("Peso: ");
+            fflush(stdin);
+            scanf("%f",user[n].peso);
             n++;
             break;
         case 2:
