@@ -19,9 +19,9 @@ inicio:
     int n = 0;
     struct usuario
     {
-        char nome[100], sexo[50], senha[20];
-        int idade;
-        float altura, peso;
+        char nome[100], sexo[50], senha[20],email[150];
+        int idade,numero;
+        float altura, peso, imc;
     } user[n];
     switch (login)
     {
@@ -71,6 +71,12 @@ inicio:
             printf("Senha: ");
             fflush(stdin);
             gets(user[n].senha);
+            printf("ID: ");
+            fflush(stdin);
+            gets(user[n].sexo);
+            printf("Senha: ");
+            fflush(stdin);
+            gets(user[n].email);
             n++;
             break;
         case 2:
