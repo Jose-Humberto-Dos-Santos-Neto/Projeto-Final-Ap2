@@ -28,7 +28,6 @@ inicio:
     case 1:
         if (cadAdm == 0)
         {
-            printf("Walisson");
             system("cls");
         cadastro:
             printf("Cadastro de Administrador");
