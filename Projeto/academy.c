@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "menu.h"
+#include "listadetreino.h"
 
 void main()
 {
@@ -71,20 +72,8 @@ inicio:
             printf("Senha: ");
             fflush(stdin);
             gets(user[n].senha);
+            //Escolhendo Genero
             genero:
-/*do{
-                printf("genero: ");
-            printf("Digite [1] para masculino, digite [2] para feminino ou [3] para outro.");
-            fflush(stdin);
-            scanf("%d",&user[n].sexo);
-            if (user[n].sexo == "1" || user[n].sexo == "2" ||user[n].sexo == "3")
-            {
-                break;
-            }else if(user[n].sexo != "1" || user[n].sexo != "2" ||user[n].sexo != "3"){
-                system("cls");
-                printf("Digite novamente, informacao invalida.");
-            }
-} while (user[n].sexo == "1" || user[n].sexo == "2" ||user[n].sexo == "3");*/
             printf("genero: ");
             printf("Digite [1] para masculino, digite [2] para feminino ou [3] para outro.");
             fflush(stdin);
@@ -163,7 +152,17 @@ inicio:
                 case 3:
                 system("cls");
                 contatos:
-                printf("Lista de contatos");
+                printf("\n| Lista de contatos |\n");
+                //Inserir Aqui
+                switch (listadetreino())
+                {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                default:
+                    break;
+                }
                 printf("\nDeseja voltar\n[0] Sim [1] Não");
                     int opmenu;
                     scanf("%d", &opmenu);
@@ -175,7 +174,12 @@ inicio:
                         goto menuprincipal;
                     }
                 break;    
+
                     case 4:
+                /*   FALTA INSERIR QUEM VAI SER o user.[n]!!!!!!!!!!!!
+                     FALTA INSERIR QUEM VAI SER o user.[n]!!!!!!!!!!!!
+                     FALTA INSERIR QUEM VAI SER o user.[n]!!!!!!!!!!!!
+                     FALTA INSERIR QUEM VAI SER o user.[n]!!!!!!!!!!!!  */
                     informacoes:
                     system("cls"); 
                     printf("\nSuas informacoes:\n");
@@ -189,13 +193,33 @@ inicio:
                     }else{
                         printf("| Genero: Nao definido\n");
                     }                
-                    //CALCULANDO IMC    
-                    //IMC = Massa (kg) ÷ Altura (m)².
+                    /*CALCULANDO IMC    
+                    //  IMC = Massa (kg) ÷ Altura (m)².
+                        Menor que 18,5 = abaixo do peso.
+                        Entre 18,5 e 24,9 = peso normal.
+                        Entre 25 e 29,9 = sobrepeso.
+                        Entre 30 e 34,99 = obesidade grau I.
+                        Entre 35 e 39,99 = obesidade grau II (severa).
+                        Acima de 40 = obesidade grau III (mórbida).*/
                             user[n].imc=user[n].peso/(user[n].peso*user[n].peso);
                                 printf("| Altura: %f\t\t\t| Peso: %f\t\t\t",user[n].altura,user[n].peso);
-                                            if (user[n].imc>40)
+                                            if (user[n].imc=>40)
                                             {
-                                                printf()
+                                                printf("| IMC: Obesidade grau III\n");
+                                            }else if (35<=user[n].imc<=39.99)
+                                            {
+                                                printf("| IMC: Obesidade grau II\n");
+                                            }else if (30<=user[n].imc<=34.99)
+                                            {
+                                                printf("| IMC: Obesidade grau I\n");
+                                            }else if (25<=user[n].imc<=29.99)
+                                            {
+                                                printf("| IMC: Sobre peso\n");
+                                            }else if (18.5<=user[n].imc<=24.9)
+                                            {
+                                                printf("| IMC: Peso normal\n");
+                                            }else{
+                                                printf("| IMC: Abaixo do peso\n");
                                             }
                     printf("\nDeseja voltar\n[0] Sim [1] Não");
                         int opmenu;
@@ -205,12 +229,14 @@ inicio:
                             goto informacoes;
                         }else if (opmenu==0)
                         {
+                            system("cls");
                             goto menuprincipal;
                         }
                     break;
-                        case 0: 
-                        system("cls");
-                        break;
+                                case 0: 
+                                //Sair do Sistema
+                                system("cls");
+                                break;
     default:
         printf("Este valor é invalido!");
         break;

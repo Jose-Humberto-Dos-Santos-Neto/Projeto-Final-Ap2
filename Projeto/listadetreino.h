@@ -1,0 +1,10 @@
+void listadetreino(){
+    int treinos[6][4];
+    //Matriz
+    //|Segunda|TREINO|QUANTIDADE|REPETICOES|
+    //|Terca  |TREINO|QUANTIDADE|REPETICOES|
+    //|Quarta |TREINO|QUANTIDADE|REPETICOES|
+    //|Quinta |TREINO|QUANTIDADE|REPETICOES|
+    //|Sexta  |TREINO|QUANTIDADE|REPETICOES|
+    //|Sabado |TREINO|QUANTIDADE|REPETICOES|
+}
