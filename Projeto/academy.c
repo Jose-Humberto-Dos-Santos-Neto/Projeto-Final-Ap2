@@ -3,7 +3,11 @@
 #include <string.h>
 #include "menu.h"
 #include "listadetreino.h"
+<<<<<<< HEAD
 #include "perguntas.h"
+=======
+#include "clcimc.h"
+>>>>>>> 72e39e56deb21c50bd8c7f9de214243e334b9101
 
 void main()
 {
@@ -234,6 +238,7 @@ menuprincipal:
             printf("| Genero: Nao definido\n");
         }
         /*CALCULANDO IMC
+<<<<<<< HEAD
         //  IMC = Massa (kg) ÷ Altura (m)².
             Menor que 18,5 = abaixo do peso.
             Entre 18,5 e 24,9 = peso normal.
@@ -242,9 +247,19 @@ menuprincipal:
             Entre 35 e 39,99 = obesidade grau II (severa).
             Acima de 40 = obesidade grau III (mórbida).*/
         user[n].imc = user[n].peso / (user[n].peso * user[n].peso);
+=======
+                //  IMC = Massa (kg) ÷ Altura (m)².
+                    Menor que 18,5 = abaixo do peso.
+                    Entre 18,5 e 24,9 = peso normal.
+                    Entre 25 e 29,9 = sobrepeso.
+                    Entre 30 e 34,99 = obesidade grau I.
+                    Entre 35 e 39,99 = obesidade grau II (severa).
+        Acima de 40 = obesidade grau III (mórbida).*/
+>>>>>>> 72e39e56deb21c50bd8c7f9de214243e334b9101
         printf("| Altura: %f\t\t\t| Peso: %f\t\t\t", user[n].altura, user[n].peso);
         if (user[n].imc = > 40)
         {
+<<<<<<< HEAD
             printf("| IMC: Obesidade grau III\n");
         }
         else if (35 <= user[n].imc <= 39.99)
@@ -266,6 +281,28 @@ menuprincipal:
         else
         {
             printf("| IMC: Abaixo do peso\n");
+=======
+        case 1:
+            printf("| IMC: Obesidade grau III\n");
+            break;
+        case 2:
+            printf("| IMC: Obesidade grau II\n");
+            break;
+        case 3:
+            printf("| IMC: Obesidade grau I\n");
+            break;
+        case 4:
+            printf("| IMC: Sobre peso\n");
+            break;
+        case 5:
+            printf("| IMC: Peso normal\n");
+            break;
+        case 6:
+            printf("| IMC: Abaixo do peso\n");
+            break;
+        default:
+            break;
+>>>>>>> 72e39e56deb21c50bd8c7f9de214243e334b9101
         }
         printf("\nDeseja voltar\n[0] Sim [1] Não");
         int opmenu;
