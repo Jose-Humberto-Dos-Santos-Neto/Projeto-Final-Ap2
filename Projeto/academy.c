@@ -201,7 +201,7 @@ inicio:
                         Entre 30 e 34,99 = obesidade grau I.
                         Entre 35 e 39,99 = obesidade grau II (severa).
                         Acima de 40 = obesidade grau III (mórbida).*/
-                            user[n].imc=user[n].peso/(user[n].peso*user[n].peso);
+                           //user[n].imc=user[n].peso/(user[n].peso*user[n].peso);
                                 printf("| Altura: %f\t\t\t| Peso: %f\t\t\t",user[n].altura,user[n].peso);
                                             if (user[n].imc=>40)
                                             {
