@@ -165,7 +165,7 @@ menuprincipal:
         default:
             break;
         }*/
-        printf("\nDeseja voltar\n[0] Sim [1] Não");
+        printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
         scanf("%d", &opmenu);
         if (opmenu == 1)
         {
@@ -180,7 +180,7 @@ menuprincipal:
         system("cls");
     fcdenutricao:
         printf("Ficha de nutricao");
-        printf("\nDeseja voltar\n[0] Sim [1] Não");
+        printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
         scanf("%d", &opmenu);
         if (opmenu == 1)
         {
@@ -196,7 +196,7 @@ menuprincipal:
         system("cls");
     contatos:
         printf("\n| Lista de contatos |\n");
-        printf("\nDeseja voltar\n[0] Sim [1] Não");
+        printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
         scanf("%d", &opmenu);
         if (opmenu == 1)
         {
@@ -232,10 +232,10 @@ menuprincipal:
             Entre 30 e 34,99 = obesidade grau I.
             Entre 35 e 39,99 = obesidade grau II (severa).
             Acima de 40 = obesidade grau III (mórbida).*/
-    switch (clcimc(&user[n].peso,&user[n].altura))
-        {
-        
-        printf("| Altura: %f\t\t\t| Peso: %f\t\t\t", user[n].altura, user[n].peso);
+ 
+        printf("| Altura: %.2f\t\t\t| Peso: %.2f\t\t\t", user[n].altura, user[n].peso);
+        int clcIMC=clcimc(user[n].peso,user[n].altura);
+         switch(clcIMC){
         case 1:
             printf("| IMC: Obesidade grau III\n");
         break;
@@ -257,7 +257,7 @@ menuprincipal:
             default:
                 break;
         }
-        printf("\nDeseja voltar\n[0] Sim [1] Não");
+        printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
         int opmenu;
         scanf("%d", &opmenu);
         if (opmenu == 1)
