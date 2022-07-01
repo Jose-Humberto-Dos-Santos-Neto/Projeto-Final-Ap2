@@ -9,7 +9,7 @@
 void main()
 {
     int cadAdm = 0;
-    int prosseguir, prosseguir1;
+    int prosseguir, prosseguir1, opcaologin;
 inicio:
     system("cls");
     printf("                                                   Seja Bem Vindo!\n");
@@ -21,7 +21,6 @@ inicio:
     scanf("%d", &login);
     char senhaAdm;
     int n;
-    char opcaologin;
     struct usuario
     {
         char nome[100], senha[20], email[150];
@@ -107,21 +106,15 @@ inicio:
             printf("Senha: ");
             fflush(stdin);
             gets(user[n].senha);
-        // Escolhendo Genero
-        genero:
-            printf("genero: ");
-            printf("Digite [1] para masculino, digite [2] para feminino ou [3] para outro.");
-            fflush(stdin);
-            scanf("%d", &user[n].sexo);
-            if (user[n].sexo == 1 || user[n].sexo == 2 || user[n].sexo == 3)
+            // Escolhendo Genero
+            do
             {
-            }
-            else
-            {
-                system("cls");
-                printf("Digite novamente, informacao invalida.");
-                goto genero;
-            }
+                printf("genero: ");
+                printf("Digite [1] para masculino\n digite [2] para feminino\n [3] para outro.");
+                fflush(stdin);
+                scanf("%d", &user[n].sexo);
+            } while (user[n].sexo == 1 || user[n].sexo == 2 || user[n].sexo == 3);
+
             printf("email: ");
             fflush(stdin);
             gets(user[n].email);
@@ -269,7 +262,6 @@ menuprincipal:
         else
         {
             printf("| IMC: Abaixo do peso\n");
-
         }
         printf("\nDeseja voltar\n[0] Sim [1] Não");
         int opmenu;
