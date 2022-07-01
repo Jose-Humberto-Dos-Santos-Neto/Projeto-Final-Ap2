@@ -4,7 +4,7 @@
 #include "menu.h"
 #include "listadetreino.h"
 #include "clcimc.h"
-int opmenu=0;
+
 void main()
 {
     int cadAdm = 0;
@@ -19,42 +19,75 @@ inicio:
     int login;
     scanf("%d", &login);
     char senhaAdm;
-    int n = 0;
+    int n;
+    char opcaologin;
     struct usuario
     {
         char nome[100], senha[20], email[150];
         int idade, numero, sexo;
         float altura, peso, imc;
-    } user[n];
+    } user[3];
+    char loginUsuario[100], senhaUsuario[20];
     switch (login)
     {
     case 1:
-        if (cadAdm == 0)
+        system("cls");
+    cadastro:
+        printf("Login de usuario");
+        printf("\n\nCaso queira prosseguir, digite [1].\nCaso queira voltar digite [2].\n");
+        scanf("%d", &prosseguir);
+        switch (prosseguir)
         {
+        case 1:
+        loginUS:
             system("cls");
-        cadastro:
-            printf("Cadastro de Administrador");
-            printf("\n\nCaso queira prosseguir, digite [1].\nCaso queira voltar digite [2].\n");
-            scanf("%d", &prosseguir);
-            switch (prosseguir)
+            printf("Email: ");
+            gets(loginUsuario);
+            fflush(stdin);
+            printf("Senha: ");
+            gets(senhaUsuario);
+            for (int i = 0; i < 3; i++)
             {
-            case 1:
-                system("cls");
-                printf("ID: admin\n");
-                printf("Senha: ");
-                scanf("%s", &senhaAdm);
-                cadAdm = 1;
-                break;
-            case 2:
-                goto inicio;
-            default:
-                printf("Informacao invalida, digite de novo\n\n");
-                goto cadastro;
+                if (loginUsuario == user[i].email)
+                {
+                    if (senhaUsuario == user[i].senha)
+                    {
+                        n = i;
+                        break;
+                    }
+                    else
+                    {
+                        printf("Senha io nao encontrado\nTente novamente ");
+                        goto loginUS;
+                    }
+                }
+                else
+                {
+                    printf("Usuario nao encontrado\nTente novamente [1] ou se cadastre [2]\n");
+                    scanf("%d", &opcaologin);
+                    if (opcaologin == 1)
+                    {
+                        goto loginUS;
+                    }
+                    else if (opcaologin == 2)
+                    {
+                        goto cadastro1;
+                    }
+                    else
+                    {
+                        printf("Valor invalido");
+                        goto loginUS;
+                    }
+                }
             }
-            if (cadAdm == 1)
-            {
-                printf("deu certo");
-            }
+            break;
+
+        case 2:
+            goto inicio;
+
+        default:
+            printf("Informacao invalida, digite de novo\n\n");
+            goto cadastro;
         }
         break;
     case 2:
@@ -197,35 +230,35 @@ menuprincipal:
         {
             printf("| Genero: Nao definido\n");
         }
-/*CALCULANDO IMC    
-        //  IMC = Massa (kg) ÷ Altura (m)².
-            Menor que 18,5 = abaixo do peso.
-            Entre 18,5 e 24,9 = peso normal.
-            Entre 25 e 29,9 = sobrepeso.
-            Entre 30 e 34,99 = obesidade grau I.
-            Entre 35 e 39,99 = obesidade grau II (severa).
-Acima de 40 = obesidade grau III (mórbida).*/
+        /*CALCULANDO IMC
+                //  IMC = Massa (kg) ÷ Altura (m)².
+                    Menor que 18,5 = abaixo do peso.
+                    Entre 18,5 e 24,9 = peso normal.
+                    Entre 25 e 29,9 = sobrepeso.
+                    Entre 30 e 34,99 = obesidade grau I.
+                    Entre 35 e 39,99 = obesidade grau II (severa).
+        Acima de 40 = obesidade grau III (mórbida).*/
         printf("| Altura: %f\t\t\t| Peso: %f\t\t\t", user[n].altura, user[n].peso);
         switch (clcimc(&user[n].altura, &user[n].peso))
         {
         case 1:
-        printf("| IMC: Obesidade grau III\n");
+            printf("| IMC: Obesidade grau III\n");
             break;
-            case 2:
-             printf("| IMC: Obesidade grau II\n");
+        case 2:
+            printf("| IMC: Obesidade grau II\n");
             break;
-                case 3:
-                printf("| IMC: Obesidade grau I\n");
-                    break;
-                case 4:
-                printf("| IMC: Sobre peso\n");
-                    break;
-                    case 5:
-                printf("| IMC: Peso normal\n");        
-                    break;
-                        case 6:
-                        printf("| IMC: Abaixo do peso\n");
-                        break;
+        case 3:
+            printf("| IMC: Obesidade grau I\n");
+            break;
+        case 4:
+            printf("| IMC: Sobre peso\n");
+            break;
+        case 5:
+            printf("| IMC: Peso normal\n");
+            break;
+        case 6:
+            printf("| IMC: Abaixo do peso\n");
+            break;
         default:
             break;
         }
