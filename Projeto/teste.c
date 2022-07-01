@@ -4,11 +4,10 @@
 void main()
 {
     int sexo;
-    do
+    while (sexo > 3 || sexo < 1)
     {
         printf("Genero");
-        printf("\nDigite [1] para masculino\n digite [2] para feminino\n [3] para outro.");
-        fflush(stdin);
+        printf("\nDigite [1] para masculino\nDigite [2] para feminino\nDigite[3] para outro.");
         scanf("\n%d", &sexo);
-    } while (sexo == 1 || sexo == 2 || sexo == 3);
+    }
 }
