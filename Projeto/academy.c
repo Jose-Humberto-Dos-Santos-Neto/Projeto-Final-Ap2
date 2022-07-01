@@ -2,13 +2,13 @@
 #include <stdio.h>
 #include <string.h>
 #include "menu.h"
-#include "listadetreino.h"
+//#include "listadetreino.h"
 #include "perguntas.h"
 #include "clcimc.h"
 
-void main()
+int main(void)
 {
-    int cadAdm = 0;
+    int opmenu;
     int prosseguir, prosseguir1, opcaologin;
 inicio:
     system("cls");
@@ -19,21 +19,20 @@ inicio:
     printf("\n\nCaso queira prosseguir como administrador digite [1].\nCaso queira prosseguir como usuario digite [2].\n");
     int login;
     scanf("%d", &login);
-    char senhaAdm;
-    int n;
+    int n=0;
     struct usuario
     {
         char nome[100], senha[20], email[150];
         int idade, numero, sexo;
         float altura, peso, imc;
-    } user[3];
+    }user[3];
     char loginUsuario[100], senhaUsuario[20];
     switch (login)
     {
     case 1:
         system("cls");
     cadastro:
-        printf("Login de usuario");
+        printf("| Login de usuario|");
         printf("\n\nCaso queira prosseguir, digite [1].\nCaso queira voltar digite [2].\n");
         scanf("%d", &prosseguir);
         switch (prosseguir)
@@ -41,10 +40,10 @@ inicio:
         case 1:
         loginUS:
             system("cls");
-            printf("Email: ");
+            printf("| Email: \n");
             gets(loginUsuario);
             fflush(stdin);
-            printf("Senha: ");
+            printf("| Senha: \n");
             gets(senhaUsuario);
             for (int i = 0; i < 3; i++)
             {
@@ -57,13 +56,13 @@ inicio:
                     }
                     else
                     {
-                        printf("Senha io nao encontrado\nTente novamente ");
+                        printf("Senha nao encontrado\nTente novamente ");
                         goto loginUS;
                     }
                 }
                 else
                 {
-                    printf("Usuario nao encontrado\nTente novamente [1] ou se cadastre [2]\n");
+                    printf("Usuario nao encontrado Ou Email Incorreto\nTente novamente [1] ou se cadastre [2]\n");
                     scanf("%d", &opcaologin);
                     if (opcaologin == 1)
                     {
@@ -100,12 +99,13 @@ inicio:
         {
         case 1:
             system("cls");
-            printf("Nome De Usuario: ");
+            printf("\n|Nome De Usuario: ");
             fflush(stdin);
             gets(user[n].nome);
-            printf("Senha: ");
+            printf("\n|Senha: ");
             fflush(stdin);
             gets(user[n].senha);
+<<<<<<< HEAD
             // Escolhendo Genero
             int sexo;
             while (user[n].sexo > 3 || user[n].sexo < 1)
@@ -117,22 +117,22 @@ inicio:
             printf("email: ");
             fflush(stdin);
             gets(user[n].email);
-            printf("Numero de Telefone: ");
+            printf("\n|Numero de Telefone: ");
             scanf("%d", &user[n].numero);
-            printf("Idade: ");
+            printf("\n|Idade: ");
             fflush(stdin);
             scanf("%d", &user[n].idade);
-            printf("Altura: ");
+            printf("\n|Altura: ");
             fflush(stdin);
             scanf("%f", &user[n].altura);
-            printf("Peso: ");
+            printf("\n|Peso: ");
             fflush(stdin);
             scanf("%f", &user[n].peso);
             break;
         case 2:
             goto inicio;
         default:
-            printf("Informacao invalida, digite de novo\n\n");
+            printf("\n|Informacao invalida, digite de novo\n\n");
             goto cadastro1;
         }
         break;
@@ -150,8 +150,16 @@ menuprincipal:
         system("cls");
     ltdetreino:
         printf("Lista de treino");
-        printf("\nDeseja voltar\n[0] Sim [1] Não");
-        int opmenu;
+        /*switch (listadetreino())
+        {
+        case 1:
+            break;
+        case 2:
+            break;
+        default:
+            break;
+        }*/
+        printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
         scanf("%d", &opmenu);
         if (opmenu == 1)
         {
@@ -166,8 +174,7 @@ menuprincipal:
         system("cls");
     fcdenutricao:
         printf("Ficha de nutricao");
-        printf("\nDeseja voltar\n[0] Sim [1] Não");
-        int opmenu;
+        printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
         scanf("%d", &opmenu);
         if (opmenu == 1)
         {
@@ -183,18 +190,7 @@ menuprincipal:
         system("cls");
     contatos:
         printf("\n| Lista de contatos |\n");
-        // Inserir Aqui
-        switch (listadetreino())
-        {
-        case 1:
-            break;
-        case 2:
-            break;
-        default:
-            break;
-        }
-        printf("\nDeseja voltar\n[0] Sim [1] Não");
-        int opmenu;
+        printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
         scanf("%d", &opmenu);
         if (opmenu == 1)
         {
@@ -206,13 +202,9 @@ menuprincipal:
         }
         break;
     case 4:
-    /*   FALTA INSERIR QUEM VAI SER o user.[n]!!!!!!!!!!!!
-         FALTA INSERIR QUEM VAI SER o user.[n]!!!!!!!!!!!!
-         FALTA INSERIR QUEM VAI SER o user.[n]!!!!!!!!!!!!
-         FALTA INSERIR QUEM VAI SER o user.[n]!!!!!!!!!!!!  */
     informacoes:
         system("cls");
-        printf("\nSuas informacoes:\n");
+        printf("\nSuas informacoes:\n");       
         printf("\n| Nome: %s\t\t\t| E-mail: %s\n| Idade: %d\t\t\t| Numero: %d\t\t\t", user[n].nome, user[n].email, user[n].idade, user[n].numero);
         if (user[n].sexo == 1)
         {
@@ -227,7 +219,6 @@ menuprincipal:
             printf("| Genero: Nao definido\n");
         }
         /*CALCULANDO IMC
-
         //  IMC = Massa (kg) ÷ Altura (m)².
             Menor que 18,5 = abaixo do peso.
             Entre 18,5 e 24,9 = peso normal.
@@ -235,34 +226,32 @@ menuprincipal:
             Entre 30 e 34,99 = obesidade grau I.
             Entre 35 e 39,99 = obesidade grau II (severa).
             Acima de 40 = obesidade grau III (mórbida).*/
-        user[n].imc = user[n].peso / (user[n].peso * user[n].peso);
-        printf("| Altura: %f\t\t\t| Peso: %f\t\t\t", user[n].altura, user[n].peso);
-        if (user[n].imc = > 40)
-        {
-
+ 
+        printf("| Altura: %.2f\t\t\t| Peso: %.2f\t\t\t", user[n].altura, user[n].peso);
+        int clcIMC=clcimc(user[n].peso,user[n].altura);
+         switch(clcIMC){
+        case 1:
             printf("| IMC: Obesidade grau III\n");
-        }
-        else if (35 <= user[n].imc <= 39.99)
-        {
+        break;
+        case 2:
             printf("| IMC: Obesidade grau II\n");
-        }
-        else if (30 <= user[n].imc <= 34.99)
-        {
+        break;
+        case 3:
             printf("| IMC: Obesidade grau I\n");
-        }
-        else if (25 <= user[n].imc <= 29.99)
-        {
+        break;
+        case 4:
             printf("| IMC: Sobre peso\n");
-        }
-        else if (18.5 <= user[n].imc <= 24.9)
-        {
+        break;
+        case 5:
             printf("| IMC: Peso normal\n");
-        }
-        else
-        {
+        break;
+        case 6:
             printf("| IMC: Abaixo do peso\n");
+        break;
+            default:
+                break;
         }
-        printf("\nDeseja voltar\n[0] Sim [1] Não");
+        printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
         int opmenu;
         scanf("%d", &opmenu);
         if (opmenu == 1)
