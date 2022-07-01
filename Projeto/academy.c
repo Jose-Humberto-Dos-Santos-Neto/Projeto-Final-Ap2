@@ -105,22 +105,16 @@ inicio:
             printf("\n|Senha: ");
             fflush(stdin);
             gets(user[n].senha);
-        // Escolhendo Genero
-        genero:
-            printf("\n|genero: ");
-            printf("\n|ESCOLHA|[1] para masculino|\t |[2] para feminino|\t |[3] Prefiro nao informar|\n");
-            fflush(stdin);
-            scanf("%d", &user[n].sexo);
-            if (user[n].sexo == 1 || user[n].sexo == 2 || user[n].sexo == 3)
+<<<<<<< HEAD
+            // Escolhendo Genero
+            int sexo;
+            while (user[n].sexo > 3 || user[n].sexo < 1)
             {
+                printf("Genero");
+                printf("\nDigite [1] para masculino\nDigite [2] para feminino\nDigite[3] para outro.");
+                scanf("\n%d", &user[n].sexo);
             }
-            else
-            {
-                system("cls");
-                printf("\n|Digite novamente, informacao invalida.");
-                goto genero;
-            }
-            printf("\n|Email: ");
+            printf("email: ");
             fflush(stdin);
             gets(user[n].email);
             printf("\n|Numero de Telefone: ");

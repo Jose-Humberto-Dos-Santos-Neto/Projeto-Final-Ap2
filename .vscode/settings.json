@@ -2,7 +2,8 @@
     "files.associations": {
         "stdlib.h": "c",
         "clcimc.h": "c",
-        "listadetreino.h": "c"
+        "listadetreino.h": "c",
+        "string.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
