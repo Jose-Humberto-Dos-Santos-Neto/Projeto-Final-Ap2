@@ -20,41 +20,74 @@ inicio:
     scanf("%d", &login);
     char senhaAdm;
     int n = 0;
+    char opcaologin;
     struct usuario
     {
         char nome[100], senha[20], email[150];
         int idade, numero, sexo;
         float altura, peso, imc;
     } user[3];
+    char loginUsuario[100], senhaUsuario[20];
     switch (login)
     {
     case 1:
-        if (cadAdm == 0)
+        system("cls");
+    cadastro:
+        printf("Login de usuario");
+        printf("\n\nCaso queira prosseguir, digite [1].\nCaso queira voltar digite [2].\n");
+        scanf("%d", &prosseguir);
+        switch (prosseguir)
         {
+        case 1:
+        loginUS:
             system("cls");
-        cadastro:
-            printf("Cadastro de Administrador");
-            printf("\n\nCaso queira prosseguir, digite [1].\nCaso queira voltar digite [2].\n");
-            scanf("%d", &prosseguir);
-            switch (prosseguir)
+            printf("Email: ");
+            gets(loginUsuario);
+            fflush(stdin);
+            printf("Senha: ");
+            gets(senhaUsuario);
+            for (int i = 0; i < 3; i++)
             {
-            case 1:
-                system("cls");
-                printf("ID: admin\n");
-                printf("Senha: ");
-                scanf("%s", &senhaAdm);
-                cadAdm = 1;
-                break;
-            case 2:
-                goto inicio;
-            default:
-                printf("Informacao invalida, digite de novo\n\n");
-                goto cadastro;
+                if (loginUsuario == user[i].email)
+                {
+                    if (senhaUsuario == user[i].senha)
+                    {
+                        n = i;
+                        break;
+                    }
+                    else
+                    {
+                        printf("Senha io nao encontrado\nTente novamente ");
+                        goto loginUS;
+                    }
+                }
+                else
+                {
+                    printf("Usuario nao encontrado\nTente novamente [1] ou se cadastre [2]\n");
+                    scanf("%d", &opcaologin);
+                    if (opcaologin == 1)
+                    {
+                        goto loginUS;
+                    }
+                    else if (opcaologin == 2)
+                    {
+                        goto cadastro1;
+                    }
+                    else
+                    {
+                        printf("Valor invalido");
+                        goto loginUS;
+                    }
+                }
             }
-            if (cadAdm == 1)
-            {
-                printf("deu certo");
-            }
+            break;
+
+        case 2:
+            goto inicio;
+
+        default:
+            printf("Informacao invalida, digite de novo\n\n");
+            goto cadastro;
         }
         break;
     case 2:
@@ -256,6 +289,5 @@ menuprincipal:
     default:
         printf("Este valor é invalido!");
         break;
-
     }
 }
