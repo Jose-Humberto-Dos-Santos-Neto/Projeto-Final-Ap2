@@ -9,6 +9,11 @@ void listadetreino(){
     }treino[5];
     //treino A
     treino[0].tt[]={{"exercicio1";4;10},{"exercicio2";4;10},{"exercicio3";4;10},{"exercicio4";4;10},{"exercicio5";4;20},{"exercicio6";4;20},{"exercicio7";4;20},{"exercicio8";4;20}};
+     treino[1].tt[]={{"exercicio1";4;10},{"exercicio2";4;10},{"exercicio3";4;10},{"exercicio4";4;10},{"exercicio5";4;20},{"exercicio6";4;20},{"exercicio7";4;20},{"exercicio8";4;20}};
+      treino[2].tt[]={{"exercicio1";4;10},{"exercicio2";4;10},{"exercicio3";4;10},{"exercicio4";4;10},{"exercicio5";4;20},{"exercicio6";4;20},{"exercicio7";4;20},{"exercicio8";4;20}};
+       treino[3].tt[]={{"exercicio1";4;10},{"exercicio2";4;10},{"exercicio3";4;10},{"exercicio4";4;10},{"exercicio5";4;20},{"exercicio6";4;20},{"exercicio7";4;20},{"exercicio8";4;20}};
+        treino[4].tt[]={{"exercicio1";4;10},{"exercicio2";4;10},{"exercicio3";4;10},{"exercicio4";4;10},{"exercicio5";4;20},{"exercicio6";4;20},{"exercicio7";4;20},{"exercicio8";4;20}};
+
 /*A – Peitorais / abdominais / panturrilhas
 
 Supino inclinado com halteres: 4 séries de 10 repetições;
@@ -51,11 +56,4 @@ Abdômen clássico com anilha no peito: 4 séries de 12 repetições.
                                 Rosca concentrada: 4 séries de 8 repetições;
                                 Rosca polia com corda: 4 séries de 10 repetições.
 */
-    //Matriz
-    //|Segunda|TREINO|QUANTIDADE|REPETICOES|
-    //|Terca  |TREINO|QUANTIDADE|REPETICOES|
-    //|Quarta |TREINO|QUANTIDADE|REPETICOES|
-    //|Quinta |TREINO|QUANTIDADE|REPETICOES|
-    //|Sexta  |TREINO|QUANTIDADE|REPETICOES|
-    //|Sabado |TREINO|QUANTIDADE|REPETICOES|
 }
