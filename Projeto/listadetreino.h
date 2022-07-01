@@ -17,4 +17,6 @@ void listadetreino(){
             treino[i].tt[j].rep=15;
         }
     }
+    printf("\n| Treinos |\n");
+    
 }
