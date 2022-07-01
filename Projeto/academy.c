@@ -72,32 +72,45 @@ inicio:
             fflush(stdin);
             gets(user[n].senha);
             genero:
-            printf("genero: ");
+/*do{
+                printf("genero: ");
             printf("Digite [1] para masculino, digite [2] para feminino ou [3] para outro.");
             fflush(stdin);
-            scanf("%d",user[n].sexo);
+            scanf("%d",&user[n].sexo);
             if (user[n].sexo == "1" || user[n].sexo == "2" ||user[n].sexo == "3")
             {
                 break;
+            }else if(user[n].sexo != "1" || user[n].sexo != "2" ||user[n].sexo != "3"){
+                system("cls");
+                printf("Digite novamente, informacao invalida.");
+            }
+} while (user[n].sexo == "1" || user[n].sexo == "2" ||user[n].sexo == "3");*/
+            printf("genero: ");
+            printf("Digite [1] para masculino, digite [2] para feminino ou [3] para outro.");
+            fflush(stdin);
+            scanf("%d",&user[n].sexo);
+            if (user[n].sexo == 1 || user[n].sexo == 2 ||user[n].sexo == 3)
+            {
+                
             }else{
                 system("cls");
-                printf("Digite novamente, informacao invalida.")
+                printf("Digite novamente, informacao invalida.");
                 goto genero;
             }
             printf("email: ");
             fflush(stdin);
             gets(user[n].email);
             printf("Numero de Telefone: ");
-            scanf("%d",user[n].numero);
+            scanf("%d",&user[n].numero);
             printf("Idade: ");
             fflush(stdin);
-            scanf("%d",user[n].idade);
+            scanf("%d",&user[n].idade);
             printf("Altura: ");
             fflush(stdin);
-            scanf("%f",user[n].altura);
+            scanf("%f",&user[n].altura);
             printf("Peso: ");
             fflush(stdin);
-            scanf("%f",user[n].peso);
+            scanf("%f",&user[n].peso);
             n++;
             break;
         case 2:
@@ -114,23 +127,86 @@ inicio:
     }
 
     //Criando Menu
+    menuprincipal:
     switch (menu())
     {
     case 1:
         system("cls");
+        ltdetreino:
         printf("Lista de treino");
+        printf("\nDeseja voltar\n[0] Sim [1] Não");
+            int opmenu;
+            scanf("%d", &opmenu);
+            if (opmenu==1)
+            {
+                goto ltdetreino;
+            }else if (opmenu==0)
+            {
+                goto menuprincipal;
+            }
         break;
             case 2:
             system("cls");
-            printf("Lista de treino");
+            fcdenutricao:
+            printf("Ficha de nutricao");
+            printf("\nDeseja voltar\n[0] Sim [1] Não");
+                int opmenu;
+                scanf("%d", &opmenu);
+                if (opmenu==1)
+                {
+                    goto fcdenutricao;
+                }else if (opmenu==0)
+                {
+                    goto menuprincipal;
+                }
             break;
                 case 3:
                 system("cls");
-                printf("Lista de treino");
+                contatos:
+                printf("Lista de contatos");
+                printf("\nDeseja voltar\n[0] Sim [1] Não");
+                    int opmenu;
+                    scanf("%d", &opmenu);
+                    if (opmenu==1)
+                    {
+                        goto contatos;
+                    }else if (opmenu==0)
+                    {
+                        goto menuprincipal;
+                    }
                 break;    
                     case 4:
+                    informacoes:
                     system("cls"); 
-                    printf("Lista de treino");
+                    printf("\nSuas informacoes:\n");
+                    printf("\n| Nome: %s\t\t\t| E-mail: %s\n| Idade: %d\t\t\t| Numero: %d\t\t\t",user[n].nome, user[n].email, user[n].idade, user[n].numero);
+                    if (user[n].sexo==1)
+                    {
+                        printf("| Genero: Masculino\n");
+                    }else if (user[n].sexo)
+                    {
+                        printf("| Genero: Feminino\n");
+                    }else{
+                        printf("| Genero: Nao definido\n");
+                    }                
+                    //CALCULANDO IMC    
+                    //IMC = Massa (kg) ÷ Altura (m)².
+                            user[n].imc=user[n].peso/(user[n].peso*user[n].peso);
+                                printf("| Altura: %f\t\t\t| Peso: %f\t\t\t",user[n].altura,user[n].peso);
+                                            if (user[n].imc>40)
+                                            {
+                                                printf()
+                                            }
+                    printf("\nDeseja voltar\n[0] Sim [1] Não");
+                        int opmenu;
+                    scanf("%d", &opmenu);
+                        if (opmenu==1)
+                        {
+                            goto informacoes;
+                        }else if (opmenu==0)
+                        {
+                            goto menuprincipal;
+                        }
                     break;
                         case 0: 
                         system("cls");
@@ -139,4 +215,4 @@ inicio:
         printf("Este valor é invalido!");
         break;
     }
-}
+    }  
