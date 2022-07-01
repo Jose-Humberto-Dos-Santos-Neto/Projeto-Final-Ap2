@@ -2,13 +2,13 @@
 #include <stdio.h>
 #include <string.h>
 #include "menu.h"
-#include "listadetreino.h"
+//#include "listadetreino.h"
 #include "perguntas.h"
 #include "clcimc.h"
-int opmenu;
-void main()
+
+int main(void)
 {
-    int cadAdm = 0;
+    int opmenu;
     int prosseguir, prosseguir1, opcaologin;
 inicio:
     system("cls");
@@ -19,7 +19,7 @@ inicio:
     printf("\n\nCaso queira prosseguir como administrador digite [1].\nCaso queira prosseguir como usuario digite [2].\n");
     int login;
     scanf("%d", &login);
-    int n;
+    int n=0;
     struct usuario
     {
         char nome[100], senha[20], email[150];
@@ -156,7 +156,7 @@ menuprincipal:
         system("cls");
     ltdetreino:
         printf("Lista de treino");
-        switch (listadetreino())
+        /*switch (listadetreino())
         {
         case 1:
             break;
@@ -164,9 +164,8 @@ menuprincipal:
             break;
         default:
             break;
-        }
+        }*/
         printf("\nDeseja voltar\n[0] Sim [1] Não");
-        int opmenu;
         scanf("%d", &opmenu);
         if (opmenu == 1)
         {
@@ -182,7 +181,6 @@ menuprincipal:
     fcdenutricao:
         printf("Ficha de nutricao");
         printf("\nDeseja voltar\n[0] Sim [1] Não");
-        int opmenu;
         scanf("%d", &opmenu);
         if (opmenu == 1)
         {
@@ -199,7 +197,6 @@ menuprincipal:
     contatos:
         printf("\n| Lista de contatos |\n");
         printf("\nDeseja voltar\n[0] Sim [1] Não");
-        int opmenu;
         scanf("%d", &opmenu);
         if (opmenu == 1)
         {
@@ -213,8 +210,7 @@ menuprincipal:
     case 4:
     informacoes:
         system("cls");
-        printf("\nSuas informacoes:\n");
-        /*
+        printf("\nSuas informacoes:\n");       
         printf("\n| Nome: %s\t\t\t| E-mail: %s\n| Idade: %d\t\t\t| Numero: %d\t\t\t", user[n].nome, user[n].email, user[n].idade, user[n].numero);
         if (user[n].sexo == 1)
         {
@@ -227,7 +223,7 @@ menuprincipal:
         else
         {
             printf("| Genero: Nao definido\n");
-        }*/
+        }
         /*CALCULANDO IMC
         //  IMC = Massa (kg) ÷ Altura (m)².
             Menor que 18,5 = abaixo do peso.
@@ -236,7 +232,7 @@ menuprincipal:
             Entre 30 e 34,99 = obesidade grau I.
             Entre 35 e 39,99 = obesidade grau II (severa).
             Acima de 40 = obesidade grau III (mórbida).*/
-       /* switch (clcimc.h(&user[n].peso,&user[n].altura))
+    switch (clcimc(&user[n].peso,&user[n].altura))
         {
         
         printf("| Altura: %f\t\t\t| Peso: %f\t\t\t", user[n].altura, user[n].peso);
@@ -251,7 +247,7 @@ menuprincipal:
         break;
         case 4:
             printf("| IMC: Sobre peso\n");
-       break;
+        break;
         case 5:
             printf("| IMC: Peso normal\n");
         break;
@@ -260,7 +256,6 @@ menuprincipal:
         break;
             default:
                 break;
-
         }
         printf("\nDeseja voltar\n[0] Sim [1] Não");
         int opmenu;
@@ -273,7 +268,7 @@ menuprincipal:
         {
             system("cls");
             goto menuprincipal;
-        }*/
+        }
         break;
 
     case 0:

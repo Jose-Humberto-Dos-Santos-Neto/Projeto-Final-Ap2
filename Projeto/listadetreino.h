@@ -12,9 +12,9 @@ void listadetreino(){
     {
         for (int j = 0; j < 8; j++)
         {
-            treino[i].tt[j].exe= "Exercicio";
-            treino[i].tt[j].qtd= 4;
-            treino[i].tt[j].rep= 15;
+            treino[i].tt[j].exe="Exercicio";
+            treino[i].tt[j].qtd=4;
+            treino[i].tt[j].rep=15;
         }
     }
 }
