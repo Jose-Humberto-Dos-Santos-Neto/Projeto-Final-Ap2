@@ -19,7 +19,7 @@ inicio:
     int login;
     scanf("%d", &login);
     char senhaAdm;
-    int n = 0;
+    int n;
     char opcaologin;
     struct usuario
     {
