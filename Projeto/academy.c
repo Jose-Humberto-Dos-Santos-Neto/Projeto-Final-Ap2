@@ -8,7 +8,8 @@
 int opmenu;
 void main()
 {
-    int prosseguir, prosseguir1;
+    int cadAdm = 0;
+    int prosseguir, prosseguir1, opcaologin;
 inicio:
     system("cls");
     printf("                                                   Seja Bem Vindo!\n");
@@ -19,8 +20,8 @@ inicio:
     int login;
     scanf("%d", &login);
     int n;
-    char opcaologin;
-    struct usuario{
+    struct usuario
+    {
         char nome[100], senha[20], email[150];
         int idade, numero, sexo;
         float altura, peso, imc;
@@ -259,6 +260,7 @@ menuprincipal:
         break;
             default:
                 break;
+
         }
         printf("\nDeseja voltar\n[0] Sim [1] Não");
         int opmenu;
