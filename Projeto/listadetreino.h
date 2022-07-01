@@ -8,11 +8,13 @@ void listadetreino(){
         }tt[8];      
     }treino[5];
     //treino A
-    treino[0].tt[]={{"exercicio1";4;10},{"exercicio2";4;10},{"exercicio3";4;10},{"exercicio4";4;10},{"exercicio5";4;20},{"exercicio6";4;20},{"exercicio7";4;20},{"exercicio8";4;20}};
-     treino[1].tt[]={{"exercicio1";4;10},{"exercicio2";4;10},{"exercicio3";4;10},{"exercicio4";4;10},{"exercicio5";4;20},{"exercicio6";4;20},{"exercicio7";4;20},{"exercicio8";4;20}};
-      treino[2].tt[]={{"exercicio1";4;10},{"exercicio2";4;10},{"exercicio3";4;10},{"exercicio4";4;10},{"exercicio5";4;20},{"exercicio6";4;20},{"exercicio7";4;20},{"exercicio8";4;20}};
-       treino[3].tt[]={{"exercicio1";4;10},{"exercicio2";4;10},{"exercicio3";4;10},{"exercicio4";4;10},{"exercicio5";4;20},{"exercicio6";4;20},{"exercicio7";4;20},{"exercicio8";4;20}};
-        treino[4].tt[]={{"exercicio1";4;10},{"exercicio2";4;10},{"exercicio3";4;10},{"exercicio4";4;10},{"exercicio5";4;20},{"exercicio6";4;20},{"exercicio7";4;20},{"exercicio8";4;20}};
+    treino[0].tt[]={{"exercicio1",4,10},{"exercicio2",4,10},{"exercicio3",4,10},{"exercicio4",4,10},{"exercicio5",4,10},{"exercicio6",4,10},{"exercicio7",4,10},{"exercicio8",4,10}};
+     //treino B
+     treino[1].tt[]={{"exercicio1",4,10},{"exercicio2",4,10},{"exercicio3",4,10},{"exercicio4",4,10},{"exercicio5",4,10},{"exercicio6",4,10},{"exercicio7",4,10},{"exercicio8",4,10}};
+     //treino C
+      treino[2].tt[]={{"exercicio1",4,10},{"exercicio2",4,10},{"exercicio3",4,10},{"exercicio4",4,10},{"exercicio5",4,10},{"exercicio6",4,10},{"exercicio7",4,10},{"exercicio8",4,10}};
+       treino[3].tt[]={{"exercicio1",4,10},{"exercicio2",4,10},{"exercicio3",4,10},{"exercicio4",4,10},{"exercicio5",4,10},{"exercicio6",4,10},{"exercicio7",4,10},{"exercicio8",4,10}};
+        treino[4].tt[]={{"exercicio1",4,10},{"exercicio2",4,10},{"exercicio3",4,10},{"exercicio4",4,10},{"exercicio5",4,10},{"exercicio6",4,10},{"exercicio7",4,10},{"exercicio8",4,10}};
 
 /*A – Peitorais / abdominais / panturrilhas
 
