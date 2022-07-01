@@ -1,8 +1,8 @@
 int imc(int x, int y)
 {
     int imc;
-    imc = x / (y * y) if (imc = > 40)
-    {
+    imc = x / (y * y);
+    if (imc = > 40){
         return 1;
     }
     else if (35 <= imc <= 39.99)
