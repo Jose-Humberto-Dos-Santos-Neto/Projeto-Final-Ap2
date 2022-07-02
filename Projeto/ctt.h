@@ -1,9 +1,10 @@
-void ctt(int adm){
+int ctt(int adm){
     contatos:
     int op;
     char contatos[7][3];
     if (adm==1)
     {
+        system("cls");
         printf("\n| Menu |\n");
         printf("|[01] Adicionar contatos|\n");
         printf("|[02] Ver Lista|\n");
@@ -17,18 +18,18 @@ void ctt(int adm){
             {
                 for (int j=0 ; j<3; j++)
                 {
-                    if (j==0)
-                    {
-                        printf("\n|Nome: ");
+                    system("cls");
+                    if(j==0){
+                        printf("\t\t|Nome: ");
                         gets(contatos[i][0]);
                         fflush(stdin);
                     }else if(j==1){
-                        printf("\n|Numero: ");
-                        gets(contatos[i][0]);
+                        printf("\t\t|Numero: ");
+                        scanf("%c",contatos[i][1]);
                         fflush(stdin);  
                     }else{
-                        printf("\n|Funcao: ");
-                        gets(contatos[i][0]);
+                        printf("\t\t|Funcao: ");
+                        scanf("%c",contatos[i][2]);
                         fflush(stdin);
                     }
                     
@@ -45,9 +46,9 @@ void ctt(int adm){
         for (int i = 0; i <7; i++)
         {           
                 printf("\n|Nome: %s\t |Numero: %c\t |Funcao: %c",contatos[i][0],contatos[i][1],contatos[i][2]);
-            
         }
     }
-    
-    
+    printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
+        scanf("%d", &op);
+        return (int)op;
 }

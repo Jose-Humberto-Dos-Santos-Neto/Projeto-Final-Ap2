@@ -5,11 +5,13 @@
 //#include "listadetreino.h"
 #include "perguntas.h"
 #include "clcimc.h"
+#include "ctt.h"
 
 int main(void)
 {
     int opmenu,adm=0;
     int prosseguir, prosseguir1, opcaologin;
+    int entrarctt= ctt(adm);
 inicio:
     system("cls");
     printf("                                                   Seja Bem Vindo!\n");
@@ -66,10 +68,9 @@ inicio:
                         adm=1;  
 
                     }else{
-                        print("\nSenha nao encontrado\nTente novamente");
+                        printf("\nSenha nao encontrado\nTente novamente");
                         system("cls");
-                        goto loginUS;
-                        
+                        goto loginUS;                      
                     }
                 }else
                 {
@@ -117,7 +118,6 @@ inicio:
             fflush(stdin);
             gets(user[n].senha);
             // Escolhendo Genero
-            int sexo;
             while (user[n].sexo > 3 || user[n].sexo < 1)
             {
                 printf("Genero");
@@ -199,16 +199,15 @@ menuprincipal:
     case 3:
         system("cls");
     contatos:
-        printf("\n| Lista de contatos |\n");
-        printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
-        scanf("%d", &opmenu);
-        if (opmenu == 1)
+        switch (entrarctt)
         {
-            goto contatos;
-        }
-        else if (opmenu == 0)
-        {
-            goto menuprincipal;
+        case 1:
+        goto contatos;
+        case 0:
+        goto menuprincipal;
+        default:
+            printf("\nValor Invalido");
+            break;
         }
         break;
     case 4:
