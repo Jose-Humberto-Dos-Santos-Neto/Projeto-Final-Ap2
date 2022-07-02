@@ -76,7 +76,6 @@ inicio:
                     goto loginUS;
                 }
             }
-            printf("%c", loginUsuario);
             printf("Usuario nao encontrado Ou Email Incorreto\nTente novamente [1] ou se cadastre [2]\n");
             scanf("%d", &opcaologin);
             if (opcaologin == 1)
@@ -157,21 +156,21 @@ inicio:
 menuprincipal:
     switch (menu())
     {
-                case 1:
-                    system("cls");
-                ltdetreino:
-                    listadetreino();
-                    printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
-                    scanf("%d", &opmenu);
-                    if (opmenu == 1)
-                    {
-                        goto ltdetreino;
-                    }
-                    else if (opmenu == 0)
-                    {
-                        goto menuprincipal;
-                    }
-                    break;
+    case 1:
+        system("cls");
+    ltdetreino:
+        listadetreino();
+        printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
+        scanf("%d", &opmenu);
+        if (opmenu == 1)
+        {
+            goto ltdetreino;
+        }
+        else if (opmenu == 0)
+        {
+            goto menuprincipal;
+        }
+        break;
     case 2:
         system("cls");
     fcdenutricao:
@@ -185,7 +184,6 @@ menuprincipal:
         else if (opmenu == 0)
         {
             goto menuprincipal;
-<<<<<<< HEAD
         }
         break;
 
@@ -267,7 +265,6 @@ menuprincipal:
         }
 
         printf("| Altura: %.2f\t\t\t| Peso: %.2f\t\t\t", user[n].altura, user[n].peso);
-<<<<<<< HEAD
         int clcIMC = clcimc(user[n].peso, user[n].altura);
         switch (clcIMC)
         {
@@ -291,44 +288,19 @@ menuprincipal:
             break;
         default:
             break;
-=======
-
-        int clcIMC=clcimc(user[n].peso,user[n].altura);
-            switch(clcIMC){
-                case 1:
-                    printf("| IMC: Obesidade grau III\n");
-                break;
-                    case 2:
-                        printf("| IMC: Obesidade grau II\n");
-                    break;
-                        case 3:
-                            printf("| IMC: Obesidade grau I\n");
-                        break;
-                            case 4:
-                                printf("| IMC: Sobre peso\n");
-                            break;
-                                case 5:
-                                    printf("| IMC: Peso normal\n");
-                                break;
-                                    case 6:
-                                        printf("| IMC: Abaixo do peso\n");
-                                    break;
-                                        default:
-                                            break;
->>>>>>> be7ee59a637af7866bdaf2f99be419b892c11ed3
         }
         printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
-            scanf("%d", &opmenu);
+        scanf("%d", &opmenu);
         if (opmenu == 1)
         {
-                goto informacoes;
-                }
-                else if (opmenu == 0)
-                    {
-                        system("cls");
-                        goto menuprincipal;
-                        }   
-                        break;
+            goto informacoes;
+        }
+        else if (opmenu == 0)
+        {
+            system("cls");
+            goto menuprincipal;
+        }
+        break;
 
     case 0:
         // Sair do Sistema
