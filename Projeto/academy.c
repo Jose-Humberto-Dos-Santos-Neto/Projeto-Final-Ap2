@@ -105,16 +105,15 @@ inicio:
             printf("\n|Senha: ");
             fflush(stdin);
             gets(user[n].senha);
-<<<<<<< HEAD
             // Escolhendo Genero
             int sexo;
             while (user[n].sexo > 3 || user[n].sexo < 1)
             {
                 printf("Genero");
-                printf("\nDigite [1] para masculino\nDigite [2] para feminino\nDigite[3] para outro.");
+                printf("\nDigite [1] para masculino\nDigite [2] para feminino\nDigite [3] para outro.");
                 scanf("\n%d", &user[n].sexo);
             }
-            printf("email: ");
+            printf("\n|Email: ");
             fflush(stdin);
             gets(user[n].email);
             printf("\n|Numero de Telefone: ");
