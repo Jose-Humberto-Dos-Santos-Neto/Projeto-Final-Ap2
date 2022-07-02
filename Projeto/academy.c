@@ -8,18 +8,18 @@
 
 int main(void)
 {
-    int opmenu,escolha,adm=0;
+    int opmenu, escolha, adm = 0;
     int prosseguir, prosseguir1, opcaologin;
     int entrarctt;
     int login;
-    int n=0;
-    char loginUsuario, senhaUsuario;
+    int n = 0;
+    char loginUsuario[100], senhaUsuario[20];
 inicio:
     system("cls");
     printf("                                                   Seja Bem Vindo!\n");
     printf("------------------------------------------------------------------------------------------------------------------------");
-    printf("\n1) Administrador ");
-    printf("\n2) Usuario ");
+    printf("\n1) Login ");
+    printf("\n2) Cadastre-se ");
     printf("\n\nCaso queira prosseguir como administrador digite [1].\nCaso queira prosseguir como usuario digite [2].\n");
     scanf("%d", &login);
     struct usuario
@@ -27,15 +27,16 @@ inicio:
         char nome[100], senha[20], email[150];
         int idade, numero, sexo;
         float altura, peso, imc;
-    }user[3];
-    struct cont{
-        char nome[150],funcao[45];
+    } user[3];
+    struct cont
+    {
+        char nome[150], funcao[45];
         int numero;
-    }ct[7];
-switch (login)
+    } ct[7];
+    switch (login)
     {
     case 1:
-        system("cls");
+        // system("cls");
     cadastro:
         printf("| Login de usuario|");
         printf("\n\nCaso queira prosseguir, digite [1].\nCaso queira voltar digite [2].\n");
@@ -43,15 +44,15 @@ switch (login)
         switch (prosseguir)
         {
         case 1:
-        //LOGIN ADM: EMAIL: ADM ou adm Senha 123
+        // LOGIN ADM: EMAIL: ADM ou adm Senha 123
         loginUS:
             system("cls");
             printf("| Email: \n");
             fflush(stdin);
-            scanf("%c",&loginUsuario); //scanf("%[^\n]s", &loginUsuario);
+            gets(loginUsuario);
             printf("| Senha: \n");
             fflush(stdin);
-            scanf("%c",&senhaUsuario); //gets(senhaUsuario);
+            gets(senhaUsuario);
             for (int i = 0; i < 3; i++)
             {
                 if (loginUsuario == user[i].email)
@@ -59,44 +60,39 @@ switch (login)
                     if (senhaUsuario == user[i].senha)
                     {
                         n = i;
-                        break;
+                        goto menuprincipal;
                     }
                     else
                     {
+                        system("cls");
                         printf("\nSenha nao encontrado!\t\tTente novamente");
-                        system("cls");
-                        goto loginUS;
-                    }//Adicionando Login de ADM
-                }else if(loginUsuario=="ADM" || loginUsuario=="adm"){
-                    if (senhaUsuario=="123"){
-                        adm=1;  
-                    }else{
-                        printf("\nSenha nao encontrado\nTente novamente");
-                        system("cls");
-                        goto loginUS;                      
-                    }
-                }else
-                {
-                    printf("%c", loginUsuario);
-                    printf("Usuario nao encontrado Ou Email Incorreto\nTente novamente [1] ou se cadastre [2]\n");
-                    scanf("%d", &opcaologin);
-                    if (opcaologin == 1)
-                    {
-                        goto loginUS;
-                    }
-                    else if (opcaologin == 2)
-                    {
-                        goto cadastro1;
-                    }
-                    else
-                    {
-                        printf("Valor invalido");
                         goto loginUS;
                     }
                 }
+                else
+                {
+                    printf("\nSenha nao encontrado\nTente novamente");
+                    system("cls");
+                    goto loginUS;
+                }
+            }
+            printf("%c", loginUsuario);
+            printf("Usuario nao encontrado Ou Email Incorreto\nTente novamente [1] ou se cadastre [2]\n");
+            scanf("%d", &opcaologin);
+            if (opcaologin == 1)
+            {
+                goto loginUS;
+            }
+            else if (opcaologin == 2)
+            {
+                goto cadastro1;
+            }
+            else
+            {
+                printf("Valor invalido");
+                goto loginUS;
             }
             break;
-
         case 2:
             goto inicio;
 
@@ -122,7 +118,7 @@ switch (login)
             fflush(stdin);
             gets(user[n].senha);
             // Escolhendo Genero
-            //Formatei o genero, nao mudar sem avisar
+            // Formatei o genero, nao mudar sem avisar
             while (user[n].sexo > 3 || user[n].sexo < 1)
             {
                 printf("Genero");
@@ -155,11 +151,11 @@ switch (login)
         system("cls");
         printf("Informacao invalida, escolha novamente!\n\n");
         goto inicio;
-}
+    }
 
 // Criando Menu
 menuprincipal:
-switch (menu())
+    switch (menu())
     {
     case 1:
         system("cls");
@@ -195,44 +191,50 @@ switch (menu())
     case 3:
         system("cls");
     contatos:
-        if (adm==1)
-    {
-        system("cls");
-        printf("\n| Menu |\n");
-        printf("|[01] Adicionar contatos|\n");
-        printf("|[02] Ver Lista|\n");
-        scanf("%d",&escolha);
-        if (escolha==2)
+        if (adm == 1)
         {
-            adm=0;
-            goto contatos;
-        }else if(escolha==1){
-            for (int i =0; i<7; i++)
+            system("cls");
+            printf("\n| Menu |\n");
+            printf("|[01] Adicionar contatos|\n");
+            printf("|[02] Ver Lista|\n");
+            scanf("%d", &escolha);
+            if (escolha == 2)
             {
+                adm = 0;
+                goto contatos;
+            }
+            else if (escolha == 1)
+            {
+                for (int i = 0; i < 7; i++)
+                {
                     system("cls");
                     fflush(stdin);
-                        printf("\t\t|Nome: ");
-                        gets(ct[i].nome);
-                        fflush(stdin);
-                        printf("\t\t|Funcao: ");
-                        gets(ct[i].funcao);
-                        fflush(stdin);
-                        printf("\t\t|Numero: ");
-                        scanf("%d",&ct[i].numero);
-                        fflush(stdin);
+                    printf("\t\t|Nome: ");
+                    gets(ct[i].nome);
+                    fflush(stdin);
+                    printf("\t\t|Funcao: ");
+                    gets(ct[i].funcao);
+                    fflush(stdin);
+                    printf("\t\t|Numero: ");
+                    scanf("%d", &ct[i].numero);
+                    fflush(stdin);
+                }
             }
-        }else{
-            printf("\nValor Invalido\n");
-            system("cls");
-            goto contatos;
+            else
+            {
+                printf("\nValor Invalido\n");
+                system("cls");
+                goto contatos;
+            }
         }
-    }else{
-        printf("\n| Lista de contatos |");
-        for (int i = 0; i <7; i++)
-        {           
-                printf("\n|Nome: %s\t |Numero: %d\t |Funcao: %s",ct[i].nome, ct[i].numero, ct[i].funcao);
+        else
+        {
+            printf("\n| Lista de contatos |");
+            for (int i = 0; i < 7; i++)
+            {
+                printf("\n|Nome: %s\t |Numero: %d\t |Funcao: %s", ct[i].nome, ct[i].numero, ct[i].funcao);
+            }
         }
-    }
         printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
         scanf("%d", &opmenu);
         if (opmenu == 1)
@@ -248,7 +250,7 @@ switch (menu())
     case 4:
     informacoes:
         system("cls");
-        printf("\nSuas informacoes:\n");       
+        printf("\nSuas informacoes:\n");
         printf("\n| Nome: %s\t\t\t| E-mail: %s\n| Idade: %d\t\t\t| Numero: %d\t\t\t", user[n].nome, user[n].email, user[n].idade, user[n].numero);
         if (user[n].sexo == 1)
         {
@@ -263,28 +265,29 @@ switch (menu())
             printf("| Genero: Nao definido\n");
         }
         printf("| Altura: %.2f\t\t\t| Peso: %.2f\t\t\t", user[n].altura, user[n].peso);
-        int clcIMC=clcimc(user[n].peso,user[n].altura);
-         switch(clcIMC){
+        int clcIMC = clcimc(user[n].peso, user[n].altura);
+        switch (clcIMC)
+        {
         case 1:
             printf("| IMC: Obesidade grau III\n");
-        break;
+            break;
         case 2:
             printf("| IMC: Obesidade grau II\n");
-        break;
+            break;
         case 3:
             printf("| IMC: Obesidade grau I\n");
-        break;
+            break;
         case 4:
             printf("| IMC: Sobre peso\n");
-        break;
+            break;
         case 5:
             printf("| IMC: Peso normal\n");
-        break;
+            break;
         case 6:
             printf("| IMC: Abaixo do peso\n");
-        break;
-            default:
-                break;
+            break;
+        default:
+            break;
         }
         printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
         int opmenu;
