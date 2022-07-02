@@ -10,9 +10,10 @@ int main(void)
 {
     int opmenu,escolha,adm=0;
     int prosseguir, prosseguir1, opcaologin;
-    int entrarctt= ctt(adm);
+    int entrarctt;
     int login;
     int n=0;
+    char loginUsuario, senhaUsuario;
 inicio:
     system("cls");
     printf("                                                   Seja Bem Vindo!\n");
@@ -31,7 +32,6 @@ inicio:
         char nome[150],funcao[45];
         int numero;
     }ct[7];
-    char loginUsuario[100], senhaUsuario[20];
 switch (login)
     {
     case 1:
@@ -47,10 +47,11 @@ switch (login)
         loginUS:
             system("cls");
             printf("| Email: \n");
-            scanf("%[^\n]s", &loginUsuario);
             fflush(stdin);
+            scanf("%c",&loginUsuario); //scanf("%[^\n]s", &loginUsuario);
             printf("| Senha: \n");
-            gets(senhaUsuario);
+            fflush(stdin);
+            scanf("%c",&senhaUsuario); //gets(senhaUsuario);
             for (int i = 0; i < 3; i++)
             {
                 if (loginUsuario == user[i].email)
@@ -62,7 +63,7 @@ switch (login)
                     }
                     else
                     {
-                        printf("\nSenha nao encontrado\nTente novamente");
+                        printf("\nSenha nao encontrado!\t\tTente novamente");
                         system("cls");
                         goto loginUS;
                     }//Adicionando Login de ADM
@@ -76,6 +77,7 @@ switch (login)
                     }
                 }else
                 {
+                    printf("%c", loginUsuario);
                     printf("Usuario nao encontrado Ou Email Incorreto\nTente novamente [1] ou se cadastre [2]\n");
                     scanf("%d", &opcaologin);
                     if (opcaologin == 1)
