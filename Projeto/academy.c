@@ -12,6 +12,8 @@ int main(void)
     int opmenu,adm=0;
     int prosseguir, prosseguir1, opcaologin;
     int entrarctt= ctt(adm);
+    int login;
+    int n=0;
 inicio:
     system("cls");
     printf("                                                   Seja Bem Vindo!\n");
@@ -19,9 +21,7 @@ inicio:
     printf("\n1) Administrador ");
     printf("\n2) Usuario ");
     printf("\n\nCaso queira prosseguir como administrador digite [1].\nCaso queira prosseguir como usuario digite [2].\n");
-    int login;
     scanf("%d", &login);
-    int n=0;
     struct usuario
     {
         char nome[100], senha[20], email[150];
