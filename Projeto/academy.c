@@ -47,7 +47,7 @@ switch (login)
         loginUS:
             system("cls");
             printf("| Email: \n");
-            gets(loginUsuario);
+            scanf("%[^\n]s", &loginUsuario);
             fflush(stdin);
             printf("| Senha: \n");
             gets(senhaUsuario);
@@ -69,7 +69,6 @@ switch (login)
                 }else if(loginUsuario=="ADM" || loginUsuario=="adm"){
                     if (senhaUsuario=="123"){
                         adm=1;  
-
                     }else{
                         printf("\nSenha nao encontrado\nTente novamente");
                         system("cls");
@@ -261,15 +260,6 @@ switch (menu())
         {
             printf("| Genero: Nao definido\n");
         }
-        /*CALCULANDO IMC
-        //  IMC = Massa (kg) ÷ Altura (m)².
-            Menor que 18,5 = abaixo do peso.
-            Entre 18,5 e 24,9 = peso normal.
-            Entre 25 e 29,9 = sobrepeso.
-            Entre 30 e 34,99 = obesidade grau I.
-            Entre 35 e 39,99 = obesidade grau II (severa).
-            Acima de 40 = obesidade grau III (mórbida).*/
- 
         printf("| Altura: %.2f\t\t\t| Peso: %.2f\t\t\t", user[n].altura, user[n].peso);
         int clcIMC=clcimc(user[n].peso,user[n].altura);
          switch(clcIMC){
