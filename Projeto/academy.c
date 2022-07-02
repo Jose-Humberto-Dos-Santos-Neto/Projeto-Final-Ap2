@@ -190,8 +190,8 @@ switch (menu())
         else if (opmenu == 0)
         {
             goto menuprincipal;
-        }
-        break;
+            }
+            break;
 
                 case 3:
                     system("cls");
@@ -199,10 +199,10 @@ switch (menu())
                     switch(ctt(adm)){
                         case 1: 
                         goto contatos;
-                        case 0:
-                        break;
-                        default:
-                        break;
+                            case 0:
+                            break;
+                                default:
+                                break;
                     }
                     break;
     case 4:
