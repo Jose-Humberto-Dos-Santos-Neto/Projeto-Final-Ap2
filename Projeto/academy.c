@@ -8,7 +8,7 @@
 
 int main(void)
 {
-    int opmenu;
+    int opmenu,adm=0;
     int prosseguir, prosseguir1, opcaologin;
 inicio:
     system("cls");
@@ -38,6 +38,7 @@ inicio:
         switch (prosseguir)
         {
         case 1:
+        //LOGIN ADM: EMAIL: ADM ou adm Senha 123
         loginUS:
             system("cls");
             printf("| Email: \n");
@@ -56,11 +57,21 @@ inicio:
                     }
                     else
                     {
-                        printf("Senha nao encontrado\nTente novamente ");
+                        printf("\nSenha nao encontrado\nTente novamente");
+                        system("cls");
                         goto loginUS;
+                    }//Adicionando Login de ADM
+                }else if(loginUsuario=="ADM" || loginUsuario=="adm"){
+                    if (senhaUsuario=="123"){
+                        adm=1;  
+
+                    }else{
+                        print("\nSenha nao encontrado\nTente novamente");
+                        system("cls");
+                        goto loginUS;
+                        
                     }
-                }
-                else
+                }else
                 {
                     printf("Usuario nao encontrado Ou Email Incorreto\nTente novamente [1] ou se cadastre [2]\n");
                     scanf("%d", &opcaologin);
