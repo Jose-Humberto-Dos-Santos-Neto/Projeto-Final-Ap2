@@ -30,7 +30,7 @@ inicio:
     struct cont{
         char nome[150],funcao[45];
         int numero;
-    }ct[7];
+    }ct[7]; 
     char loginUsuario[100], senhaUsuario[20];
 switch (login)
     {
@@ -159,21 +159,21 @@ switch (login)
 menuprincipal:
 switch (menu())
     {
-    case 1:
-        system("cls");
-    ltdetreino:
-        printf("Lista de treino");
-        printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
-        scanf("%d", &opmenu);
-        if (opmenu == 1)
-        {
-            goto ltdetreino;
-        }
-        else if (opmenu == 0)
-        {
-            goto menuprincipal;
-        }
-        break;
+                case 1:
+                    system("cls");
+                ltdetreino:
+                    listadetreino();
+                    printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
+                    scanf("%d", &opmenu);
+                    if (opmenu == 1)
+                    {
+                        goto ltdetreino;
+                    }
+                    else if (opmenu == 0)
+                    {
+                        goto menuprincipal;
+                    }
+                    break;
     case 2:
         system("cls");
     fcdenutricao:
@@ -190,59 +190,18 @@ switch (menu())
         }
         break;
 
-    case 3:
-        system("cls");
-    contatos:
-        if (adm==1)
-    {
-        system("cls");
-        printf("\n| Menu |\n");
-        printf("|[01] Adicionar contatos|\n");
-        printf("|[02] Ver Lista|\n");
-        scanf("%d",&escolha);
-        if (escolha==2)
-        {
-            adm=0;
-            goto contatos;
-        }else if(escolha==1){
-            for (int i =0; i<7; i++)
-            {
+                case 3:
                     system("cls");
-                    fflush(stdin);
-                        printf("\t\t|Nome: ");
-                        gets(ct[i].nome);
-                        fflush(stdin);
-                        printf("\t\t|Funcao: ");
-                        gets(ct[i].funcao);
-                        fflush(stdin);
-                        printf("\t\t|Numero: ");
-                        scanf("%d",&ct[i].numero);
-                        fflush(stdin);
-            }
-        }else{
-            printf("\nValor Invalido\n");
-            system("cls");
-            goto contatos;
-        }
-    }else{
-        printf("\n| Lista de contatos |");
-        for (int i = 0; i <7; i++)
-        {           
-                printf("\n|Nome: %s\t |Numero: %d\t |Funcao: %s",ct[i].nome, ct[i].numero, ct[i].funcao);
-        }
-    }
-        printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
-        scanf("%d", &opmenu);
-        if (opmenu == 1)
-        {
-            goto contatos;
-        }
-        else if (opmenu == 0)
-        {
-            system("cls");
-            goto menuprincipal;
-        }
-        break;
+                    contatos:
+                    switch(ctt(adm)){
+                        case 1: 
+                        goto contatos;
+                        case 0:
+                        break;
+                        default:
+                        break;
+                    }
+                    break;
     case 4:
     informacoes:
         system("cls");
@@ -260,43 +219,44 @@ switch (menu())
         {
             printf("| Genero: Nao definido\n");
         }
+
         printf("| Altura: %.2f\t\t\t| Peso: %.2f\t\t\t", user[n].altura, user[n].peso);
+
         int clcIMC=clcimc(user[n].peso,user[n].altura);
-         switch(clcIMC){
-        case 1:
-            printf("| IMC: Obesidade grau III\n");
-        break;
-        case 2:
-            printf("| IMC: Obesidade grau II\n");
-        break;
-        case 3:
-            printf("| IMC: Obesidade grau I\n");
-        break;
-        case 4:
-            printf("| IMC: Sobre peso\n");
-        break;
-        case 5:
-            printf("| IMC: Peso normal\n");
-        break;
-        case 6:
-            printf("| IMC: Abaixo do peso\n");
-        break;
-            default:
+            switch(clcIMC){
+                case 1:
+                    printf("| IMC: Obesidade grau III\n");
                 break;
+                    case 2:
+                        printf("| IMC: Obesidade grau II\n");
+                    break;
+                        case 3:
+                            printf("| IMC: Obesidade grau I\n");
+                        break;
+                            case 4:
+                                printf("| IMC: Sobre peso\n");
+                            break;
+                                case 5:
+                                    printf("| IMC: Peso normal\n");
+                                break;
+                                    case 6:
+                                        printf("| IMC: Abaixo do peso\n");
+                                    break;
+                                        default:
+                                            break;
         }
         printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
-        int opmenu;
-        scanf("%d", &opmenu);
+            scanf("%d", &opmenu);
         if (opmenu == 1)
         {
-            goto informacoes;
-        }
-        else if (opmenu == 0)
-        {
-            system("cls");
-            goto menuprincipal;
-        }
-        break;
+                goto informacoes;
+                }
+                else if (opmenu == 0)
+                    {
+                        system("cls");
+                        goto menuprincipal;
+                        }   
+                        break;
 
     case 0:
         // Sair do Sistema
