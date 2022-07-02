@@ -5,11 +5,10 @@
 //#include "listadetreino.h"
 #include "perguntas.h"
 #include "clcimc.h"
-#include "ctt.h"
 
 int main(void)
 {
-    int opmenu,adm=0;
+    int opmenu,escolha,adm=0;
     int prosseguir, prosseguir1, opcaologin;
     int entrarctt= ctt(adm);
     int login;
@@ -28,8 +27,12 @@ inicio:
         int idade, numero, sexo;
         float altura, peso, imc;
     }user[3];
+    struct cont{
+        char nome[150],funcao[45];
+        int numero;
+    }ct[7];
     char loginUsuario[100], senhaUsuario[20];
-    switch (login)
+switch (login)
     {
     case 1:
         system("cls");
@@ -44,7 +47,7 @@ inicio:
         loginUS:
             system("cls");
             printf("| Email: \n");
-            gets(loginUsuario);
+            scanf("%[^\n]s", &loginUsuario);
             fflush(stdin);
             printf("| Senha: \n");
             gets(senhaUsuario);
@@ -66,7 +69,6 @@ inicio:
                 }else if(loginUsuario=="ADM" || loginUsuario=="adm"){
                     if (senhaUsuario=="123"){
                         adm=1;  
-
                     }else{
                         printf("\nSenha nao encontrado\nTente novamente");
                         system("cls");
@@ -151,25 +153,16 @@ inicio:
         system("cls");
         printf("Informacao invalida, escolha novamente!\n\n");
         goto inicio;
-    }
+}
 
 // Criando Menu
 menuprincipal:
-    switch (menu())
+switch (menu())
     {
     case 1:
         system("cls");
     ltdetreino:
         printf("Lista de treino");
-        /*switch (listadetreino())
-        {
-        case 1:
-            break;
-        case 2:
-            break;
-        default:
-            break;
-        }*/
         printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
         scanf("%d", &opmenu);
         if (opmenu == 1)
@@ -200,15 +193,54 @@ menuprincipal:
     case 3:
         system("cls");
     contatos:
-        switch (entrarctt)
+        if (adm==1)
+    {
+        system("cls");
+        printf("\n| Menu |\n");
+        printf("|[01] Adicionar contatos|\n");
+        printf("|[02] Ver Lista|\n");
+        scanf("%d",&escolha);
+        if (escolha==2)
         {
-        case 1:
-        goto contatos;
-        case 0:
-        goto menuprincipal;
-        default:
-            printf("\nValor Invalido");
-            break;
+            adm=0;
+            goto contatos;
+        }else if(escolha==1){
+            for (int i =0; i<7; i++)
+            {
+                    system("cls");
+                    fflush(stdin);
+                        printf("\t\t|Nome: ");
+                        gets(ct[i].nome);
+                        fflush(stdin);
+                        printf("\t\t|Funcao: ");
+                        gets(ct[i].funcao);
+                        fflush(stdin);
+                        printf("\t\t|Numero: ");
+                        scanf("%d",&ct[i].numero);
+                        fflush(stdin);
+            }
+        }else{
+            printf("\nValor Invalido\n");
+            system("cls");
+            goto contatos;
+        }
+    }else{
+        printf("\n| Lista de contatos |");
+        for (int i = 0; i <7; i++)
+        {           
+                printf("\n|Nome: %s\t |Numero: %d\t |Funcao: %s",ct[i].nome, ct[i].numero, ct[i].funcao);
+        }
+    }
+        printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
+        scanf("%d", &opmenu);
+        if (opmenu == 1)
+        {
+            goto contatos;
+        }
+        else if (opmenu == 0)
+        {
+            system("cls");
+            goto menuprincipal;
         }
         break;
     case 4:
@@ -228,15 +260,6 @@ menuprincipal:
         {
             printf("| Genero: Nao definido\n");
         }
-        /*CALCULANDO IMC
-        //  IMC = Massa (kg) ÷ Altura (m)².
-            Menor que 18,5 = abaixo do peso.
-            Entre 18,5 e 24,9 = peso normal.
-            Entre 25 e 29,9 = sobrepeso.
-            Entre 30 e 34,99 = obesidade grau I.
-            Entre 35 e 39,99 = obesidade grau II (severa).
-            Acima de 40 = obesidade grau III (mórbida).*/
- 
         printf("| Altura: %.2f\t\t\t| Peso: %.2f\t\t\t", user[n].altura, user[n].peso);
         int clcIMC=clcimc(user[n].peso,user[n].altura);
          switch(clcIMC){
