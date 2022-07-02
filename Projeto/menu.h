@@ -1,5 +1,6 @@
 int menu(){
     int escolha;
+    system("cls");
     printf("\n | Escolha uma das opcoes |\n");
     printf("\n | (01) Lista de Treino   |\n");
     printf("\n | (02) Ficha de nutricao |\n");

@@ -15,8 +15,7 @@ void listadetreino(){
             treino[i].tt[j].exe="Exercicio";
             treino[i].tt[j].qtd=4;
             treino[i].tt[j].rep=15;
+            printf("\n|Treino: %c\t\t|Quantidade: %d\t\t|Repeticoes: %d\t\t",treino[i].tt[j].exe,treino[i].tt[j].qtd,treino[i].tt[j].rep);
         }
     }
-    printf("\n| Treinos |\n");
-    
 }
