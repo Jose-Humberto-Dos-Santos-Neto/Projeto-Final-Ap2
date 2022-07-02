@@ -108,7 +108,7 @@ switch (login)
     cadastro1:
         system("cls");
         printf("Cadastro de Usuario");
-        printf("\n\nCaso queira prosseguir, digite [1].\nCaso queira voltar digite [2].\n");
+        printf("\n\nDigite [1] para prosseguir.\t\t\tDigite [2] para voltar.\n");
         scanf("%d", &prosseguir1);
         switch (prosseguir1)
         {
@@ -121,10 +121,11 @@ switch (login)
             fflush(stdin);
             gets(user[n].senha);
             // Escolhendo Genero
+            //Formatei o genero, nao mudar sem avisar
             while (user[n].sexo > 3 || user[n].sexo < 1)
             {
                 printf("Genero");
-                printf("\nDigite [1] para masculino\nDigite [2] para feminino\nDigite [3] para outro.");
+                printf("\n|Digite [1] para masculino\t\t|Digite [2] para feminino\t\t|Digite [3] prefiro nao informa.");
                 scanf("\n%d", &user[n].sexo);
             }
             printf("\n|Email: ");
