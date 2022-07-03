@@ -4,3 +4,5 @@
 4- Adicionar os planos (Mensal,Semestral,Anual)FIXME:
 5- fazer as perguntasFIXME:
 Estou usando TODO: para feitos e FIXME: para nao feitos 
+6- Mano tu tinha dito para fazer um bagui de arquivo nao lembro que, 
+

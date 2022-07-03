@@ -6,6 +6,7 @@
 #include "fichadent.h" 
 #include "clcimc.h"
 #include "perguntas.h"
+#include "criptografia.h"
 
 int main(void)
 {
@@ -24,8 +25,8 @@ inicio:
     scanf("%d", &login);
     struct usuario
     {
-        char nome[100], senha[20], email[150];
-        int idade, numero, sexo;
+        char nome[100], senha[20], email[150], numero[30];
+        int idade, sexo;
         float altura, peso, imc;
     } user[3];
     struct cont
@@ -44,7 +45,6 @@ inicio:
         switch (prosseguir)
         {
         case 1:
-        // LOGIN ADM: EMAIL: ADM ou adm Senha 123
         loginUS:
             system("cls");
             printf("| Email: \n");
@@ -117,7 +117,7 @@ inicio:
             fflush(stdin);
             gets(user[n].senha);
             // Escolhen
-            while (user[n].sexo > 3 |do Genero| user[n].sexo < 1)
+            while (user[n].sexo > 3 || user[n].sexo < 1)
             {
                 printf("Genero");
                 printf("\n|Digite [1] para masculino\t|Digite [2] para feminino\t|Digite [3] para prefiro nao informa.");
@@ -127,7 +127,8 @@ inicio:
             fflush(stdin);
             gets(user[n].email);
             printf("\n|Numero de Telefone: ");
-            scanf("%d", &user[n].numero);
+            fflush(stdin);
+            gets(user[n].numero);
             printf("\n|Idade: ");
             fflush(stdin);
             scanf("%d", &user[n].idade);
@@ -152,7 +153,8 @@ inicio:
     }
     FILE *file;
     file = fopen("ListaDeUsuario.txt", "a+");
-    fprintf(file, "| Nome: %s\t\t\t| E-mail: %s\n| Idade: %d\t\t\t| Numero: %d\t\t\t\n", user[0].nome, user[0].email, user[0].idade, user[0].numero);
+    cript(user[n].senha);
+    fprintf(file, "| Nome: %s\t\t\t| E-mail: %s\t\t\t|Senha: %s\n| Idade: %d\t\t\t| Numero: %s\t\t\t\n", user[n].nome, user[n].email,user[n].senha, user[n].idade, user[n].numero);
     if (user[n].sexo == 1)
     {
         fprintf(file, "| Genero: Masculino\t\t\t");
@@ -165,7 +167,7 @@ inicio:
     {
         fprintf(file, "| Genero: Nao definido\t\t\t");
     }
-    fprintf(file, "| Altura: %.2f\t\t\t| Peso: %.2f\t\t\t ", user[0].altura, user[0].peso);
+    fprintf(file, "| Altura: %.2f\t\t\t| Peso: %.2f\t\t\t ", user[n].altura, user[n].peso);
     int clcIMC = clcimc(user[n].peso, user[n].altura);
     switch (clcIMC)
     {
@@ -294,7 +296,7 @@ menuprincipal:
     informacoes:
         system("cls");
         printf("\nSuas informacoes:\n");
-        printf("\n| Nome: %s\t\t\t| E-mail: %s\n| Idade: %d\t\t\t| Numero: %d\t\t\t", user[n].nome, user[n].email, user[n].idade, user[n].numero);
+        printf("\n| Nome: %s\t\t\t| E-mail: %s\n| Idade: %d\t\t\t| Numero: %s\t\t\t", user[n].nome, user[n].email, user[n].idade, user[n].numero);
         if (user[n].sexo == 1)
         {
             printf("| Genero: Masculino\n");
@@ -332,13 +334,26 @@ menuprincipal:
         default:
             break;
         }
-        printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
+        int editInf;
+        printf("\nDeseja editar suas informacoes\n[1] Sim [2] Nao");
+        scanf("%d",editInf);
+        if (editInf = 1)
+        {
+            system("cls");
+            printf("Qual informacao deseja editar");
+            printf("\n|1- Nome\n|2- Email\n|3- Idade\n|4- Numero\n|5- Genero\n|6- Altura\n|7- Peso");
+        
+        }else{
+            printf("\n\n\n");
+        }
+        
+        printf("\nDeseja voltar\n[1] Sim [2] Nao\t");
         scanf("%d", &opmenu);
-        if (opmenu == 1)
+        if (opmenu == 2)
         {
             goto informacoes;
         }
-        else if (opmenu == 0)
+        else if (opmenu == 1)
         {
             system("cls");
             goto menuprincipal;

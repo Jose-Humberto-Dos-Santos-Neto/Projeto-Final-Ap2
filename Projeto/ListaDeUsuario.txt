@@ -1,6 +1,16 @@
+|
+| Nome: jose humberto dos santos neto			| E-mail: josehumberto@gmail.com			|Senha: *********
+| Idade: 18			| Numero: 64 999289276			
+| Genero: Masculino			| Altura: 1.70			| Peso: 45.50			 | IMC: Abaixo do peso
 
-| Nome: jose			| E-mail: josehumberto27112003@gmail.com
-| Idade: 18			| Numero: 64			
-| Genero: Masculino			| Altura: 1.79			| Peso: 66.50			 | IMC: Peso normal
+-----------------------------------------------------------------------------------------
+| Nome: jose humberto dos santos neto			| E-mail: josehumberto@gmail.com			|Senha: ********
+| Idade: 18			| Numero: (64) 99928-9276			
+| Genero: Masculino			| Altura: 1.70			| Peso: 55.00			 | IMC: Peso normal
+
+-----------------------------------------------------------------------------------------
+| Nome: agdg			| E-mail: fa			|Senha: **
+| Idade: 18			| Numero: (64) 99928-9276			
+| Genero: Masculino			| Altura: 1.70			| Peso: 45.50			 | IMC: Abaixo do peso
 
 -----------------------------------------------------------------------------------------
