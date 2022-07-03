@@ -20,3 +20,13 @@
 | Genero: Masculino			| Altura: 213.00			| Peso: 12.00			 | IMC: Abaixo do peso
 
 -----------------------------------------------------------------------------------------
+| Nome: Walisson Santos Moraes			| E-mail: walissonmoraes@gmail.com			|Senha: *****
+| Idade: 18			| Numero: 123 1213 21			
+| Genero: Masculino			| Altura: 1.74			| Peso: 65.00			 | IMC: Peso normal
+
+-----------------------------------------------------------------------------------------
+| Nome: Vitin Senta fofo			| E-mail: vitor.carvalho@discente.ufj.edu.br			|Senha: *****
+| Idade: 19			| Numero: 34 219293			
+| Genero: Masculino			| Altura: 1.81			| Peso: 57.00			 | IMC: Abaixo do peso
+
+-----------------------------------------------------------------------------------------

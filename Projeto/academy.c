@@ -306,49 +306,48 @@ menuprincipal:
             printf("\n|1- Nome\n|2- Email\n|3- Idade\n|4- Numero\n|5- Genero\n|6- Altura\n|7- Peso");
             scanf("%d",&opmenu);
             switch (opmenu)
-            {
-            case 1:
-                printf("\n\n| Alterar seu nome: \n|Antigo: %s \t|Novo: ");
-                fflush(stdin);
-                gets(user[n].nome);
-                break;
-                    case 2:
-                        printf("\n\n| Alterar seu Email: \n|Antigo: %s \t|Novo: ");
-                        fflush(stdin);
-                        gets(user[n].email);
-                        break;
-                            case 3:
-                                printf("\n\n| Alterar sua Idade: \n|Antiga: %s \t|Nova: ");
-                                fflush(stdin);
-                                scanf("%d",user[n].idade);
-                                break;
-                                    case 4:
-                                        printf("\n\n| Alterar seu Numero: \n|Antigo: %s \t|Novo: ");
-                                        fflush(stdin);
-                                         scanf("%d",user[n].numero);
-                                        break;
-                                    case 5:
-                                        printf("\n\n| Alterar seu Genero: \n|Antigo: %s \t ");
-                                        fflush(stdin);
-                                        scanf("%d",user[n].sexo);
-                                        break;
-                             case 6:
-                                printf("\n\n| Alterar sua Altura: \n|Antiga: %s \t|Nova: ");
-                                fflush(stdin);
-                                 scanf("%d",user[n].altura);
-                                break;
-                    case 7:
-                        printf("\n\n| Alterar seu peso: \n|Antigo: %s \t|Novo: ");
-                        fflush(stdin);
-                        scanf("%d",user[n].peso);
-                        break;
-            default:
-                printf("\n\n|Valor Invalido!");
-                goto editarinformacao;
-                break;
-                    }
-        }
-        else
+                {
+                case 1:
+                    printf("\n\n| Alterar seu nome: \n|Antigo: %s \t|Novo: ");
+                    fflush(stdin);
+                    gets(user[n].nome);
+                    break;
+                        case 2:
+                            printf("\n\n| Alterar seu Email: \n|Antigo: %s \t|Novo: ");
+                            fflush(stdin);
+                            gets(user[n].email);
+                            break;
+                                case 3:
+                                    printf("\n\n| Alterar sua Idade: \n|Antiga: %s \t|Nova: ");
+                                    fflush(stdin);
+                                    scanf("%d",user[n].idade);
+                                    break;
+                                        case 4:
+                                            printf("\n\n| Alterar seu Numero: \n|Antigo: %s \t|Novo: ");
+                                            fflush(stdin);
+                                            scanf("%d",user[n].numero);
+                                            break;
+                                        case 5:
+                                            printf("\n\n| Alterar seu Genero: \n|Antigo: %s \t ");
+                                            fflush(stdin);
+                                            scanf("%d",user[n].sexo);
+                                            break;
+                                case 6:
+                                    printf("\n\n| Alterar sua Altura: \n|Antiga: %s \t|Nova: ");
+                                    fflush(stdin);
+                                    scanf("%d",user[n].altura);
+                                    break;
+                        case 7:
+                            printf("\n\n| Alterar seu peso: \n|Antigo: %s \t|Novo: ");
+                            fflush(stdin);
+                            scanf("%d",user[n].peso);
+                            break;
+                default:
+                    printf("\n\n|Valor Invalido!");
+                    goto editarinformacao;
+                    break;
+                }
+        }else
         {
             printf("| Este valor é invalido");
         }
