@@ -1,0 +1,32 @@
+void fichadent(){
+    system("cls");
+    printf("\n|Refeicao [Desjejum]|\n");
+    printf("\n|Pão Integral (2 fatias)");
+    printf("\n|Margarina ou Requeijão");
+    printf("\n|Leite desnatado");
+    printf("\n|Fruta");
+    printf("\n----------------------------\n");
+    printf("\n|Refeicao [Lanche Da manha]|\n");
+    printf("\n|Fruta");
+    printf("\n----------------------------\n");
+    printf("\n|Refeicao [Almoco]|\n");
+    printf("\n|Salada [folhas] (A vontade)");
+    printf("\n|Legumes (A vontade)");
+    printf("\n|Arroz (4 colheres de sopa)");
+    printf("\n|Feijao (2 colheres de sopa)");
+    printf("\n|Frango[grelhado] (1 file medio)");
+    printf("\n----------------------------\n");
+    printf("\n|Refeicao [Lanche Da Tarde]|\n");
+    printf("\n|Fruta");
+    printf("\n|Suco");
+    printf("\n|Iorgute");
+    printf("\n----------------------------");
+    printf("\n|Refeicao [Jantar]|\n");
+    printf("\n|Pao integral (2 Fatias)");
+    printf("\n|Salada (A vontade)");
+    printf("\n|Legumes (A vontade)");
+    printf("\n|Peito de peru (2 Fatias)");
+    printf("\n----------------------------");
+    printf("\n|Refeicao [Cheia]|\n");
+    printf("\n|Leite desnatado");
+}

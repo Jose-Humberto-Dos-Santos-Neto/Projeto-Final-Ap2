@@ -1,0 +1,6 @@
+1- IA FIXME:
+2- arquivos lista de contatosFIXME:
+3- ponteiros TODO:
+4- Adicionar os planos (Mensal,Semestral,Anual)FIXME:
+5- fazer as perguntasFIXME:
+Estou usando TODO: para feitos e FIXME: para nao feitos 

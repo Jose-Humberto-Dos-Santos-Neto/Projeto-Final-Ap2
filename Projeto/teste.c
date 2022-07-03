@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-void main()
+int main()
 {
     /*int sexo;
     while (sexo > 3 || sexo < 1)
@@ -10,27 +10,23 @@ void main()
         printf("\nDigite [1] para masculino\nDigite [2] para feminino\nDigite[3] para outro.");
         scanf("\n%d", &sexo);
     }*/
-    struct test
+    // char txt = "Um Dois Tres";  da errado
+    // char dxd[100] = "Um Dois Tres Quatro"; deu certo
+    char vetor[50];
+    printf("Digite uma frase:\n");
+    scanf("%s", vetor);
+    cifra(vetor, '%');
+    printf("A frase sera:%s", vetor);
+    return 0;
+}
+char cifra(char *a, char b)
+{
+    int i;
+    for (i = 0; a[i] != '\0'; i++)
     {
-        char *str1;
-
-    } struct teste[2];
-    teste[0].str1 = "admin";
-    teste[1].str1 = "adm";
-    int ret;
-
-    ret = strncmp(str1, str2, 6);
-
-    if (ret > 0)
-    {
-        printf("str1 e maior");
-    }
-    else if (ret < 0)
-    {
-        printf("str2 e maior");
-    }
-    else
-    {
-        printf("As duas palavras sao iguais");
+        if (a[i] == 'a' || a[i] == 'e' || a[i] == 'i' || a[i] == 'o' || a[i] == 'u')
+        {
+            a[i] = b;
+        }
     }
 }

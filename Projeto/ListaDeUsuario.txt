@@ -1,0 +1,6 @@
+
+| Nome: jose			| E-mail: josehumberto27112003@gmail.com
+| Idade: 18			| Numero: 64			
+| Genero: Masculino			| Altura: 1.79			| Peso: 66.50			 | IMC: Peso normal
+
+-----------------------------------------------------------------------------------------

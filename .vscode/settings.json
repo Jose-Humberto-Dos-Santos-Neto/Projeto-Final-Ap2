@@ -3,7 +3,8 @@
         "stdlib.h": "c",
         "clcimc.h": "c",
         "listadetreino.h": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "stdio.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

@@ -2,15 +2,15 @@
 #include <stdio.h>
 #include <string.h>
 #include "menu.h"
-//#include "listadetreino.h"
-#include "perguntas.h"
+#include "listadetreino.h" 
+#include "fichadent.h" 
 #include "clcimc.h"
+#include "perguntas.h"
 
 int main(void)
 {
     int opmenu, escolha, adm = 0;
     int prosseguir, prosseguir1, opcaologin;
-    int entrarctt;
     int login;
     int n = 0;
     char loginUsuario[100], senhaUsuario[20];
@@ -36,7 +36,7 @@ inicio:
     switch (login)
     {
     case 1:
-        // system("cls");
+        system("cls");
     cadastro:
         printf("| Login de usuario|");
         printf("\n\nCaso queira prosseguir, digite [1].\nCaso queira voltar digite [2].\n");
@@ -116,12 +116,11 @@ inicio:
             printf("\n|Senha: ");
             fflush(stdin);
             gets(user[n].senha);
-            // Escolhendo Genero
-            // Formatei o genero, nao mudar sem avisar
-            while (user[n].sexo > 3 || user[n].sexo < 1)
+            // Escolhen
+            while (user[n].sexo > 3 |do Genero| user[n].sexo < 1)
             {
                 printf("Genero");
-                printf("\n|Digite [1] para masculino\t\t|Digite [2] para feminino\t\t|Digite [3] prefiro nao informa.");
+                printf("\n|Digite [1] para masculino\t|Digite [2] para feminino\t|Digite [3] para prefiro nao informa.");
                 scanf("\n%d", &user[n].sexo);
             }
             printf("\n|Email: ");
@@ -151,15 +150,60 @@ inicio:
         printf("Informacao invalida, escolha novamente!\n\n");
         goto inicio;
     }
-
-// Criando Menu
+    FILE *file;
+    file = fopen("ListaDeUsuario.txt", "a+");
+    fprintf(file, "| Nome: %s\t\t\t| E-mail: %s\n| Idade: %d\t\t\t| Numero: %d\t\t\t\n", user[0].nome, user[0].email, user[0].idade, user[0].numero);
+    if (user[n].sexo == 1)
+    {
+        fprintf(file, "| Genero: Masculino\t\t\t");
+    }
+    else if (user[n].sexo == 2)
+    {
+        fprintf(file, "| Genero: Feminino\t\t\t");
+    }
+    else
+    {
+        fprintf(file, "| Genero: Nao definido\t\t\t");
+    }
+    fprintf(file, "| Altura: %.2f\t\t\t| Peso: %.2f\t\t\t ", user[0].altura, user[0].peso);
+    int clcIMC = clcimc(user[n].peso, user[n].altura);
+    switch (clcIMC)
+    {
+    case 1:
+        fprintf(file, "| IMC: Obesidade grau III\n");
+        break;
+    case 2:
+        fprintf(file, "| IMC: Obesidade grau II\n");
+        break;
+    case 3:
+        fprintf(file, "| IMC: Obesidade grau I\n");
+        break;
+    case 4:
+        fprintf(file, "| IMC: Sobre peso\n");
+        break;
+    case 5:
+        fprintf(file, "| IMC: Peso normal\n");
+        break;
+    case 6:
+        fprintf(file, "| IMC: Abaixo do peso\n");
+        break;
+    default:
+        break;
+    }
+    fprintf(file, "\n-----------------------------------------------------------------------------------------\n");
+    fclose(file);
+    // Criando Menu
+    char menutreino;
 menuprincipal:
     switch (menu())
     {
     case 1:
         system("cls");
     ltdetreino:
-        listadetreino();
+        printf("\n|Qual Treino quer realizar? \n|A - Peitoral\n|B - Costas\n|C - Pernas\n|D - Ombros\n");
+        fflush(stdin);
+        scanf("%c", &menutreino);
+        listadetreino(&menutreino);
         printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
         scanf("%d", &opmenu);
         if (opmenu == 1)
@@ -174,7 +218,7 @@ menuprincipal:
     case 2:
         system("cls");
     fcdenutricao:
-        printf("Ficha de nutricao");
+        fichadent();
         printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
         scanf("%d", &opmenu);
         if (opmenu == 1)
@@ -255,7 +299,7 @@ menuprincipal:
         {
             printf("| Genero: Masculino\n");
         }
-        else if (user[n].sexo)
+        else if (user[n].sexo == 2)
         {
             printf("| Genero: Feminino\n");
         }
@@ -265,7 +309,6 @@ menuprincipal:
         }
 
         printf("| Altura: %.2f\t\t\t| Peso: %.2f\t\t\t", user[n].altura, user[n].peso);
-        int clcIMC = clcimc(user[n].peso, user[n].altura);
         switch (clcIMC)
         {
         case 1:
