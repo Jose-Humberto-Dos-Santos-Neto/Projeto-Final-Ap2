@@ -4,15 +4,15 @@
 #include "menu.h"
 #include "listadetreino.h"
 #include "fichadent.h"
+#include "ctt.h"
 #include "clcimc.h"
-#include "perguntas.h"
 #include "criptografia.h"
 
 int main(void)
 {
-    int opmenu, escolha;
+    int opmenu;
     int prosseguir, prosseguir1, opcaologin;
-    int login;
+    int login,calcIMC;//, imcIA;
     int n = 0;
     char loginUsuario[100], senhaUsuario[20];
 inicio:
@@ -27,13 +27,9 @@ inicio:
     {
         char nome[100], senha[20], email[150], numero[30];
         int idade, sexo;
-        float altura, peso, imc;
+        float altura, peso;
     } user[3];
-    struct cont
-    {
-        char nome[150], funcao[45];
-        int numero;
-    } ct[7];
+
     switch (login)
     {
     case 1:
@@ -65,13 +61,13 @@ inicio:
                     else
                     {
                         system("cls");
-                        printf("\nSenha nao encontrado!\t\tTente novamente");
+                        printf("\n|Senha nao encontrado!\t\t|Tente novamente");
                         goto loginUS;
                     }
                 }
                 else
                 {
-                    printf("\nSenha nao encontrado\nTente novamente");
+                    printf("\n|Senha nao encontrado\n|Tente novamente");
                     system("cls");
                     goto loginUS;
                 }
@@ -116,7 +112,7 @@ inicio:
             printf("\n|Senha: ");
             fflush(stdin);
             gets(user[n].senha);
-            // Escolhen
+            // Escolher genero
             while (user[n].sexo > 3 || user[n].sexo < 1)
             {
                 printf("Genero");
@@ -148,9 +144,10 @@ inicio:
         break;
     default:
         system("cls");
-        printf("Informacao invalida, escolha novamente!\n\n");
+        printf("Informacao invalida novamente!\n\n");
         goto inicio;
     }
+    /////Criando Arquivo com os dados dos usuarios
     FILE *file;
     file = fopen("ListaDeUsuario.txt", "a+");
     cript(user[n].senha);
@@ -168,26 +165,31 @@ inicio:
         fprintf(file, "| Genero: Nao definido\t\t\t");
     }
     fprintf(file, "| Altura: %.2f\t\t\t| Peso: %.2f\t\t\t ", user[n].altura, user[n].peso);
-    int clcIMC = clcimc(user[n].peso, user[n].altura);
-    switch (clcIMC)
+    calcIMC = clcimc(user[n].peso, user[n].altura);
+    switch (calcIMC)
     {
     case 1:
         fprintf(file, "| IMC: Obesidade grau III\n");
         break;
     case 2:
         fprintf(file, "| IMC: Obesidade grau II\n");
+        //imcIA = 2;
         break;
     case 3:
         fprintf(file, "| IMC: Obesidade grau I\n");
+        //imcIA = 3;
         break;
     case 4:
         fprintf(file, "| IMC: Sobre peso\n");
+        //imcIA = 4;
         break;
     case 5:
         fprintf(file, "| IMC: Peso normal\n");
+        //imcIA = 5;
         break;
     case 6:
         fprintf(file, "| IMC: Abaixo do peso\n");
+        //imcIA = 6;
         break;
     default:
         break;
@@ -202,7 +204,7 @@ menuprincipal:
     case 1:
         system("cls");
     ltdetreino:
-        printf("\n|Qual Treino quer realizar? \n|A - Peitoral\n|B - Costas\n|C - Pernas\n|D - Ombros\n");
+        printf("\n|Qual Treino quer realizar? \n|A - Peitoral|\n|B - Costas|\n|C - Pernas|\n|D - Ombros|\n");
         fflush(stdin);
         scanf("%c", &menutreino);
         listadetreino(&menutreino);
@@ -235,28 +237,17 @@ menuprincipal:
 
     case 3:
         system("cls");
-    contatos:
-        printf("\n| Lista de contatos |");
-        for (int i = 0; i < 7; i++)
-        {
-            printf("\n|Nome: %s\t |Numero: %d\t |Funcao: %s", ct[i].nome, ct[i].numero, ct[i].funcao);
-        }
-        printf("\n\nDeseja voltar\n[1] Sim [2] Nao\t");
-        scanf("%d", &opmenu);
-        if (opmenu == 2)
-        {
-            goto contatos;
-        }
-        else if (opmenu == 1)
-        {
-            system("cls");
-            goto menuprincipal;
-        }
+        //FILE CONTATOS.h
+        system("cls");
+        printf("\n uma opcao|\n|[1] Contato de Fisioterapeuta\n|[2] Contato de Nutricionista\n|[3] Contato de Personal Trainer\n|[4] Contato de Psicologo\n|[5] Contato de todos profissionais");
+        scanf("%d",&opmenu);
+        ctt(opmenu);    
         break;
+
     case 4:
     informacoes:
         system("cls");
-        printf("\nSuas informacoes:\n");
+        printf("\n|Suas informacoes: |\n");
         printf("\n| Nome: %s\t\t\t| E-mail: %s\n| Idade: %d\t\t\t| Numero: %s\t\t\t", user[n].nome, user[n].email, user[n].idade, user[n].numero);
         if (user[n].sexo == 1)
         {
@@ -270,9 +261,8 @@ menuprincipal:
         {
             printf("| Genero: Nao definido\n");
         }
-
         printf("| Altura: %.2f\t\t\t| Peso: %.2f\t\t\t", user[n].altura, user[n].peso);
-        switch (clcIMC)
+        switch (calcIMC)
         {
         case 1:
             printf("| IMC: Obesidade grau III\n");
@@ -300,56 +290,57 @@ menuprincipal:
         scanf("%d", &editInf);
         if (editInf = 1)
         {
-            editarinformacao:
+        editarinformacao:
             system("cls");
             printf("Qual informacao deseja editar");
             printf("\n|1- Nome\n|2- Email\n|3- Idade\n|4- Numero\n|5- Genero\n|6- Altura\n|7- Peso");
-            scanf("%d",&opmenu);
+            scanf("%d", &opmenu);
             switch (opmenu)
-                {
-                case 1:
-                    printf("\n\n| Alterar seu nome: \n|Antigo: %s \t|Novo: ");
-                    fflush(stdin);
-                    gets(user[n].nome);
-                    break;
-                        case 2:
-                            printf("\n\n| Alterar seu Email: \n|Antigo: %s \t|Novo: ");
-                            fflush(stdin);
-                            gets(user[n].email);
-                            break;
-                                case 3:
-                                    printf("\n\n| Alterar sua Idade: \n|Antiga: %s \t|Nova: ");
-                                    fflush(stdin);
-                                    scanf("%d",user[n].idade);
-                                    break;
-                                        case 4:
-                                            printf("\n\n| Alterar seu Numero: \n|Antigo: %s \t|Novo: ");
-                                            fflush(stdin);
-                                            scanf("%d",user[n].numero);
-                                            break;
-                                        case 5:
-                                            printf("\n\n| Alterar seu Genero: \n|Antigo: %s \t ");
-                                            fflush(stdin);
-                                            scanf("%d",user[n].sexo);
-                                            break;
-                                case 6:
-                                    printf("\n\n| Alterar sua Altura: \n|Antiga: %s \t|Nova: ");
-                                    fflush(stdin);
-                                    scanf("%d",user[n].altura);
-                                    break;
-                        case 7:
-                            printf("\n\n| Alterar seu peso: \n|Antigo: %s \t|Novo: ");
-                            fflush(stdin);
-                            scanf("%d",user[n].peso);
-                            break;
-                default:
-                    printf("\n\n|Valor Invalido!");
-                    goto editarinformacao;
-                    break;
-                }
-        }else
+            {
+            case 1:
+                printf("\n\n| Alterar seu nome: \n|Antigo: %s \t|Novo: ",user[n].nome);
+                fflush(stdin);
+                gets(user[n].nome);
+                break;
+            case 2:
+                printf("\n\n| Alterar seu Email: \n|Antigo: %s \t|Novo: ",user[n].email);
+                fflush(stdin);
+                gets(user[n].email);
+                break;
+            case 3:
+                printf("\n\n| Alterar sua Idade: \n|Antiga: %d \t|Nova: ",user[n].idade);
+                fflush(stdin);
+                scanf("%d", &user[n].idade);
+                break;
+            case 4:
+                printf("\n\n| Alterar seu Numero: \n|Antigo: %s \t|Novo: ",user[n].numero);
+                fflush(stdin);
+                gets(user[n].numero);
+                break;
+            case 5:
+                printf("\n\n| Alterar seu Genero: \n|[1] Masculino\t[2] Feminino [3] Nao informado \t ");
+                fflush(stdin);
+                scanf("%d", &user[n].sexo);
+                break;
+            case 6:
+                printf("\n\n| Alterar sua Altura: \n|Antiga: %.2f \t|Nova: ",user[n].altura);
+                fflush(stdin);
+                scanf("%f", &user[n].altura);
+                break;
+            case 7:
+                printf("\n\n| Alterar seu peso: \n|Antigo: %.2f \t|Novo: ",user[n].peso);
+                fflush(stdin);
+                scanf("%f", &user[n].peso);
+                break;
+            default:
+                printf("\n\n|Valor Invalido!");
+                goto editarinformacao;
+                break;
+            }
+        }
+        else
         {
-            printf("| Este valor é invalido");
+            printf("| Este valor e invalido");
         }
 
         printf("\n\nDeseja voltar\n[1] Sim [2] Nao\t");

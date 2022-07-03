@@ -1,8 +1,8 @@
 void fichadent(){
     system("cls");
     printf("\n|Refeicao [Desjejum]|\n");
-    printf("\n|Pão Integral (2 fatias)");
-    printf("\n|Margarina ou Requeijão");
+    printf("\n|Pao Integral (2 fatias)");
+    printf("\n|Margarina ou Requeijao");
     printf("\n|Leite desnatado");
     printf("\n|Fruta");
     printf("\n----------------------------\n");

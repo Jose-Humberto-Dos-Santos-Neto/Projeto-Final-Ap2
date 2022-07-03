@@ -13,20 +13,8 @@
 | Idade: 18			| Numero: (64) 99928-9276			
 | Genero: Masculino			| Altura: 1.70			| Peso: 45.50			 | IMC: Abaixo do peso
 
------------------------------------------------------------------------------------------
-
-| Nome: was			| E-mail: dwaawda			|Senha: **
-| Idade: 12			| Numero: 1232			
-| Genero: Masculino			| Altura: 213.00			| Peso: 12.00			 | IMC: Abaixo do peso
-
------------------------------------------------------------------------------------------
-| Nome: Walisson Santos Moraes			| E-mail: walissonmoraes@gmail.com			|Senha: *****
-| Idade: 18			| Numero: 123 1213 21			
-| Genero: Masculino			| Altura: 1.74			| Peso: 65.00			 | IMC: Peso normal
-
------------------------------------------------------------------------------------------
-| Nome: Vitin Senta fofo			| E-mail: vitor.carvalho@discente.ufj.edu.br			|Senha: *****
-| Idade: 19			| Numero: 34 219293			
-| Genero: Masculino			| Altura: 1.81			| Peso: 57.00			 | IMC: Abaixo do peso
+-----------------------------------------------------------------------------------------| Nome: jose			| E-mail: dgojsogjs			|Senha: *****
+| Idade: 43			| Numero: 5745675674			
+| Genero: Masculino			| Altura: 2.00			| Peso: 50.50			 | IMC: Abaixo do peso
 
 -----------------------------------------------------------------------------------------
