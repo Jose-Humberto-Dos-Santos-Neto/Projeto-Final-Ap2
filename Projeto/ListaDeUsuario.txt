@@ -14,3 +14,9 @@
 | Genero: Masculino			| Altura: 1.70			| Peso: 45.50			 | IMC: Abaixo do peso
 
 -----------------------------------------------------------------------------------------
+
+| Nome: was			| E-mail: dwaawda			|Senha: **
+| Idade: 12			| Numero: 1232			
+| Genero: Masculino			| Altura: 213.00			| Peso: 12.00			 | IMC: Abaixo do peso
+
+-----------------------------------------------------------------------------------------

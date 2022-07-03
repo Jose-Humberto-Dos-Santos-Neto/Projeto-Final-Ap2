@@ -2,15 +2,15 @@
 #include <stdio.h>
 #include <string.h>
 #include "menu.h"
-#include "listadetreino.h" 
-#include "fichadent.h" 
+#include "listadetreino.h"
+#include "fichadent.h"
 #include "clcimc.h"
 #include "perguntas.h"
 #include "criptografia.h"
 
 int main(void)
 {
-    int opmenu, escolha, adm = 0;
+    int opmenu, escolha;
     int prosseguir, prosseguir1, opcaologin;
     int login;
     int n = 0;
@@ -154,7 +154,7 @@ inicio:
     FILE *file;
     file = fopen("ListaDeUsuario.txt", "a+");
     cript(user[n].senha);
-    fprintf(file, "| Nome: %s\t\t\t| E-mail: %s\t\t\t|Senha: %s\n| Idade: %d\t\t\t| Numero: %s\t\t\t\n", user[n].nome, user[n].email,user[n].senha, user[n].idade, user[n].numero);
+    fprintf(file, "| Nome: %s\t\t\t| E-mail: %s\t\t\t|Senha: %s\n| Idade: %d\t\t\t| Numero: %s\t\t\t\n", user[n].nome, user[n].email, user[n].senha, user[n].idade, user[n].numero);
     if (user[n].sexo == 1)
     {
         fprintf(file, "| Genero: Masculino\t\t\t");
@@ -206,13 +206,13 @@ menuprincipal:
         fflush(stdin);
         scanf("%c", &menutreino);
         listadetreino(&menutreino);
-        printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
+        printf("\n\nDeseja voltar\n[1] Sim [2] Nao\t");
         scanf("%d", &opmenu);
-        if (opmenu == 1)
+        if (opmenu == 2)
         {
             goto ltdetreino;
         }
-        else if (opmenu == 0)
+        else if (opmenu == 1)
         {
             goto menuprincipal;
         }
@@ -221,13 +221,13 @@ menuprincipal:
         system("cls");
     fcdenutricao:
         fichadent();
-        printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
+        printf("\n\nDeseja voltar\n[1] Sim [2] Nao\t");
         scanf("%d", &opmenu);
-        if (opmenu == 1)
+        if (opmenu == 2)
         {
             goto fcdenutricao;
         }
-        else if (opmenu == 0)
+        else if (opmenu == 1)
         {
             goto menuprincipal;
         }
@@ -236,57 +236,18 @@ menuprincipal:
     case 3:
         system("cls");
     contatos:
-        if (adm == 1)
+        printf("\n| Lista de contatos |");
+        for (int i = 0; i < 7; i++)
         {
-            system("cls");
-            printf("\n| Menu |\n");
-            printf("|[01] Adicionar contatos|\n");
-            printf("|[02] Ver Lista|\n");
-            scanf("%d", &escolha);
-            if (escolha == 2)
-            {
-                adm = 0;
-                goto contatos;
-            }
-            else if (escolha == 1)
-            {
-                for (int i = 0; i < 7; i++)
-                {
-                    system("cls");
-                    fflush(stdin);
-                    printf("\t\t|Nome: ");
-                    gets(ct[i].nome);
-                    fflush(stdin);
-                    printf("\t\t|Funcao: ");
-                    gets(ct[i].funcao);
-                    fflush(stdin);
-                    printf("\t\t|Numero: ");
-                    scanf("%d", &ct[i].numero);
-                    fflush(stdin);
-                }
-            }
-            else
-            {
-                printf("\nValor Invalido\n");
-                system("cls");
-                goto contatos;
-            }
+            printf("\n|Nome: %s\t |Numero: %d\t |Funcao: %s", ct[i].nome, ct[i].numero, ct[i].funcao);
         }
-        else
-        {
-            printf("\n| Lista de contatos |");
-            for (int i = 0; i < 7; i++)
-            {
-                printf("\n|Nome: %s\t |Numero: %d\t |Funcao: %s", ct[i].nome, ct[i].numero, ct[i].funcao);
-            }
-        }
-        printf("\nDeseja voltar\n[0] Sim [1] Nao\t");
+        printf("\n\nDeseja voltar\n[1] Sim [2] Nao\t");
         scanf("%d", &opmenu);
-        if (opmenu == 1)
+        if (opmenu == 2)
         {
             goto contatos;
         }
-        else if (opmenu == 0)
+        else if (opmenu == 1)
         {
             system("cls");
             goto menuprincipal;
@@ -336,18 +297,63 @@ menuprincipal:
         }
         int editInf;
         printf("\nDeseja editar suas informacoes\n[1] Sim [2] Nao");
-        scanf("%d",editInf);
+        scanf("%d", &editInf);
         if (editInf = 1)
         {
+            editarinformacao:
             system("cls");
             printf("Qual informacao deseja editar");
             printf("\n|1- Nome\n|2- Email\n|3- Idade\n|4- Numero\n|5- Genero\n|6- Altura\n|7- Peso");
-        
-        }else{
-            printf("\n\n\n");
+            scanf("%d",&opmenu);
+            switch (opmenu)
+            {
+            case 1:
+                printf("\n\n| Alterar seu nome: \n|Antigo: %s \t|Novo: ");
+                fflush(stdin);
+                gets(user[n].nome);
+                break;
+                    case 2:
+                        printf("\n\n| Alterar seu Email: \n|Antigo: %s \t|Novo: ");
+                        fflush(stdin);
+                        gets(user[n].email);
+                        break;
+                            case 3:
+                                printf("\n\n| Alterar sua Idade: \n|Antiga: %s \t|Nova: ");
+                                fflush(stdin);
+                                scanf("%d",user[n].idade);
+                                break;
+                                    case 4:
+                                        printf("\n\n| Alterar seu Numero: \n|Antigo: %s \t|Novo: ");
+                                        fflush(stdin);
+                                         scanf("%d",user[n].numero);
+                                        break;
+                                    case 5:
+                                        printf("\n\n| Alterar seu Genero: \n|Antigo: %s \t ");
+                                        fflush(stdin);
+                                        scanf("%d",user[n].sexo);
+                                        break;
+                             case 6:
+                                printf("\n\n| Alterar sua Altura: \n|Antiga: %s \t|Nova: ");
+                                fflush(stdin);
+                                 scanf("%d",user[n].altura);
+                                break;
+                    case 7:
+                        printf("\n\n| Alterar seu peso: \n|Antigo: %s \t|Novo: ");
+                        fflush(stdin);
+                        scanf("%d",user[n].peso);
+                        break;
+            default:
+                printf("\n\n|Valor Invalido!");
+                goto editarinformacao;
+                break;
+                    }
         }
-        
-        printf("\nDeseja voltar\n[1] Sim [2] Nao\t");
+        else
+        {
+            printf("| Este valor é invalido");
+        }
+
+        printf("\n\nDeseja voltar\n[1] Sim [2] Nao\t");
         scanf("%d", &opmenu);
         if (opmenu == 2)
         {
@@ -366,7 +372,6 @@ menuprincipal:
         break;
 
     default:
-        printf("Este valor é invalido!");
         break;
     }
 }
