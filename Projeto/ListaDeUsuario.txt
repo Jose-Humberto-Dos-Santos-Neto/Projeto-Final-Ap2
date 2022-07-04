@@ -9,11 +9,12 @@
 | Genero: Masculino			| Altura: 1.70			| Peso: 55.00			 | IMC: Peso normal
 
 -----------------------------------------------------------------------------------------
-| Nome: agdg			| E-mail: fa			|Senha: **
+| Nome: walisson moraes			| E-mail: fax@gmail.com			|Senha: **
 | Idade: 18			| Numero: (64) 99928-9276			
 | Genero: Masculino			| Altura: 1.70			| Peso: 45.50			 | IMC: Abaixo do peso
 
------------------------------------------------------------------------------------------| Nome: jose			| E-mail: dgojsogjs			|Senha: *****
+-----------------------------------------------------------------------------------------
+| Nome: jose			| E-mail: dgojsogjs			|Senha: *****
 | Idade: 43			| Numero: 5745675674			
 | Genero: Masculino			| Altura: 2.00			| Peso: 50.50			 | IMC: Abaixo do peso
 

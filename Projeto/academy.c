@@ -151,7 +151,7 @@ inicio:
     FILE *file;
     file = fopen("ListaDeUsuario.txt", "a+");
     cript(user[n].senha);
-    fprintf(file, "| Nome: %s\t\t\t| E-mail: %s\t\t\t|Senha: %s\n| Idade: %d\t\t\t| Numero: %s\t\t\t\n", user[n].nome, user[n].email, user[n].senha, user[n].idade, user[n].numero);
+    fprintf(file, "\n| Nome: %s\t\t\t| E-mail: %s\t\t\t|Senha: %s\n| Idade: %d\t\t\t| Numero: %s\t\t\t\n", user[n].nome, user[n].email, user[n].senha, user[n].idade, user[n].numero);
     if (user[n].sexo == 1)
     {
         fprintf(file, "| Genero: Masculino\t\t\t");
