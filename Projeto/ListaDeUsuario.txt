@@ -19,3 +19,21 @@
 | Genero: Masculino			| Altura: 2.00			| Peso: 50.50			 | IMC: Abaixo do peso
 
 -----------------------------------------------------------------------------------------
+
+| Nome: Walisosn			| E-mail: awlas			|Senha: ****
+| Idade: 15			| Numero: 124213			
+| Genero: Masculino			| Altura: 1.75			| Peso: 65.00			 | IMC: Peso normal
+
+-----------------------------------------------------------------------------------------
+
+| Nome: wdawd			| E-mail: 1231dawdcaw			|Senha: ****
+| Idade: 21			| Numero: 1243			
+| Genero: Masculino			| Altura: 214.00			| Peso: 214.00			 | IMC: Abaixo do peso
+
+-----------------------------------------------------------------------------------------
+
+| Nome: milena			| E-mail: milena			|Senha: ***
+| Idade: 19			| Numero: 123			
+| Genero: Feminino			| Altura: 1.70			| Peso: 65.00			 | IMC: Peso normal
+
+-----------------------------------------------------------------------------------------

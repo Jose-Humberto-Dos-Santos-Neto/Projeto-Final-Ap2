@@ -202,8 +202,8 @@ menuprincipal:
     switch (menu())
     {
     case 1:
-        system("cls");
     ltdetreino:
+        system("cls");
         printf("\n|Qual Treino quer realizar? \n|A - Peitoral|\n|B - Costas|\n|C - Pernas|\n|D - Ombros|\n");
         fflush(stdin);
         scanf("%c", &menutreino);
@@ -238,10 +238,22 @@ menuprincipal:
     case 3:
         system("cls");
         //FILE CONTATOS.h
+        contatos:
         system("cls");
         printf("\n uma opcao|\n|[1] Contato de Fisioterapeuta\n|[2] Contato de Nutricionista\n|[3] Contato de Personal Trainer\n|[4] Contato de Psicologo\n|[5] Contato de todos profissionais");
         scanf("%d",&opmenu);
-        ctt(opmenu);    
+        ctt(opmenu); 
+        printf("\n\nDeseja voltar\n[1] Sim [2] Nao\t");
+        scanf("%d", &opmenu);
+        if (opmenu == 2)
+        {
+            goto contatos;
+        }
+        else if (opmenu == 1)
+        {
+            system("cls");
+            goto menuprincipal;
+        }
         break;
 
     case 4:
@@ -262,6 +274,7 @@ menuprincipal:
             printf("| Genero: Nao definido\n");
         }
         printf("| Altura: %.2f\t\t\t| Peso: %.2f\t\t\t", user[n].altura, user[n].peso);
+        calcIMC = clcimc(user[n].peso, user[n].altura);
         switch (calcIMC)
         {
         case 1:
@@ -287,8 +300,8 @@ menuprincipal:
         }
         int editInf;
         printf("\nDeseja editar suas informacoes\n[1] Sim [2] Nao");
-        scanf("%d", &editInf);
-        if (editInf = 1)
+        scanf("%d", &opmenu);
+        if (opmenu == 1)
         {
         editarinformacao:
             system("cls");
@@ -337,10 +350,12 @@ menuprincipal:
                 goto editarinformacao;
                 break;
             }
-        }
-        else
+        }else if(opmenu == 2){
+            system("cls");
+            goto menuprincipal;
+        }else
         {
-            printf("| Este valor e invalido");
+            printf("\n| Este valor e invalido");
         }
 
         printf("\n\nDeseja voltar\n[1] Sim [2] Nao\t");
